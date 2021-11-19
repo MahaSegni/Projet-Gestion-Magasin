@@ -10,7 +10,7 @@ import { SidemenuComponent } from './sidemenu/sidemenu.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    SidemenuComponent
+    SidemenuComponent,
   ],
   imports: [
     BrowserModule,
