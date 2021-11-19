@@ -1,0 +1,13 @@
+.nav-link{
+    color: #0000FF !important;
+    opacity: 0.8;
+}
+.nav-link:hover{
+    opacity: 1;
+    font-weight: 600;
+}
+.active{
+    opacity: 1;
+    font-weight: 600;
+
+}
