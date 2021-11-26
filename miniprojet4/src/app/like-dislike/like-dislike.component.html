@@ -1,0 +1,63 @@
+<html ng-app="myModule">
+<head runat="server">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    var app = angular
+      .module("myModule", [])
+      .controller("myController", function ($scope) {
+
+        $scope.technologies = [
+          {name: "C#", likes: 0, dislikes: 0},
+          {name: "ASP.NET", likes: 0, dislikes: 0},
+          {name: "ASP.NET MVC", likes: 0, dislikes: 0},
+          {name: "SQL", likes: 0, dislikes: 0},
+          {name: "AngularJS", likes: 0, dislikes: 0},
+          {name: "Angular 5", likes: 0, dislikes: 0},
+          {name: "JQuery", likes: 0, dislikes: 0},
+          {name: "JavaScript", likes: 0, dislikes: 0}
+
+        ];
+
+        $scope.incrementLikes = function (technology) {
+          technology.likes++;
+        };
+
+        $scope.incrementDislikes = function (technology) {
+          technology.dislikes++;
+        };
+      });
+  </script>
+
+</head>
+<body >
+<form id="form1">
+  <div class="container">
+    <table class="table table-bordered">
+      <thead class="bg-danger text-uppercase text-white">
+      <tr>
+        <th>Technology</th>
+        <th>Likes</th>
+        <th>Dislikes</th>
+        <th>Action(s)</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let technology in technologies">
+        <td>{{ technology.name }} </td>
+        <td style="text-align: center">{{ technology.likes }} </td>
+        <td style="text-align: center">{{ technology.dislikes }} </td>
+        <td>
+          <button type="button" class="btn btn-sm btn-success"><i class="fa fa-thumbs-up" ng-click="incrementLikes(technology)"></i></button>
+          <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-thumbs-down" ng-click="incrementDislikes(technology)"></i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
+</body>
+

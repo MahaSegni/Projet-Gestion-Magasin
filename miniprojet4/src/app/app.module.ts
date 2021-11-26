@@ -6,6 +6,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { FooterComponent } from './footer/footer.component';
+import {CodePromoComponent} from "./code-promo/code-promo.component";
+import {HttpClientModule} from "@angular/common/http";
+import { CreateCodePromoComponent } from './create-code-promo/create-code-promo.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { UpdateCodePromoComponent } from './update-code-promo/update-code-promo.component';
+import {FilterPipe} from "./code-promo/filter.pipe";
+import { LikeDislikeComponent } from './like-dislike/like-dislike.component';
+import {NgxQRCodeModule} from "@techiediaries/ngx-qrcode";
 
 @NgModule({
   declarations: [
@@ -13,10 +21,19 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     SidemenuComponent,
     FooterComponent,
+    CodePromoComponent,
+    CreateCodePromoComponent,
+    UpdateCodePromoComponent,
+    FilterPipe,
+    LikeDislikeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgxQRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

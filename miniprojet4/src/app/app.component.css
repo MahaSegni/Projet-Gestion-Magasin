@@ -68,7 +68,13 @@ body {
   text-align: left;
   background-color: #fff;
 }
-
+footer{
+  position: fixed;
+  left:0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }

@@ -1,0 +1,20 @@
+<h2>Update Promo</h2>
+
+<hr/>
+<form  [formGroup]="myForm" (ngSubmit)="updateCode(myForm)">
+<div *ngIf="code">
+  <div>
+    <label><b>Clé promo: </b></label><input type="text" class="form-control" value="{{code.cle}}" formControlName="cle" [(ngModel)]="code.cle">
+  </div>
+  <div>
+    <label><b>Date Fin: </b></label> <input  type="datetime-local"  class="form-control" value=" {{code.dateFin| date:'yyyy-MM-ddThh:mm:ss'}}" formControlName="dateFin" [(ngModel)]="code.dateFin">
+  </div>
+  <div>
+    <label><b>Valeur: </b></label> <input type="number" class="form-control" value="{{code.valeur}}" formControlName="valeur" [(ngModel)]="code.valeur">
+  </div>
+<div>
+  <br>
+  <button type="submit" class="btn btn-success" >Update</button>
+</div>
+</div>
+</form>

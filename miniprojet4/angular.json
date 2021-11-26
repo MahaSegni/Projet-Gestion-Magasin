@@ -73,9 +73,11 @@
               "browserTarget": "miniprojet4:build:production"
             },
             "development": {
-              "browserTarget": "miniprojet4:build:development"
+              "browserTarget": "miniprojet4:build:development",
+              "proxyConfig": "./proxy.conf.json"
             }
           },
+
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
