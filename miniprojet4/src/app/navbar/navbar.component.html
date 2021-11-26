@@ -14,17 +14,18 @@
           <a class="nav-link" [class.active]="check2" (click)="changeCheck2()" routerLink="" >Utiliser un code Promo</a>
         </li>
         <li class="nav-item"  *ngIf="getUserType()==='NL'">
-          <a class="nav-link" [class.active]="check3" (click)="changeCheck3()" routerLink="">Se connecter</a>
+          <a class="nav-link" [class.active]="check3" (click)="changeCheck3()" routerLink="/connection">Se connecter</a>
         </li>
         <li class="nav-item" *ngIf="getUserType()==='NL'">
-          <a class="nav-link" [class.active]="check4" (click)="changeCheck4()" routerLink="" >S'inscrire</a>
+          <a class="nav-link" [class.active]="check4" (click)="changeCheck4()" routerLink="/inscription" >S'inscrire</a>
         </li>
-        <li class="nav-item dropdown" *ngIf="getUserType()==='USER'">
+        <li class="nav-item dropdown" *ngIf="getUserType()==='USER' || getUserType()==='MODERATEUR'  ">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Profil</a></li>
+            <li><a class="dropdown-item" routerLink="/profile">Profil</a></li>
             <li><a class="dropdown-item" href="#">Panier</a></li>
+            <li><a class="dropdown-item" (click)="disconnect()">Déconnecter</a></li>
           </ul>
         </li>
       </ul>

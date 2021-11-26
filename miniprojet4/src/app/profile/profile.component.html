@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row mt-5" *ngIf="afficher == false">
+        <!--<div class="col-4">
+            <img src="assets/img/{{user.urlpicture}}" alt="" class="w-50">
+        </div>-->
+        <div class="col-12 ">
+            <div class="card ">
+                <img src="assets/img/{{user.urlpicture}}" alt="John" style="width:100%">
+                <p class="title">{{user.badge}}</p>
+                <h6>Nom :{{user.nom}}</h6>
+                <h6>Prenom :{{user.prenom}}</h6>
+                <h6>Date de naissance: {{user.dateNaissance| date }}</h6>
+                <h6>Email : {{user.email}}</h6>
+                <div>
+                    <button class="btn btn-primary mt-3 btn-user" (click)="displayForm()">Modifier mon profil</button>
+                    <button class="btn btn-danger my-2 btn-user" (click)="displayFormPsw()">Modifier mot de passe</button>
+                </div>
+            </div>
+            <!--<div class="mx-auto w-75">
+                <h5>Nom : {{user.nom}}</h5>
+                <h5>Prenom : {{user.prenom}}</h5>
+                <h5>Date de naissance: {{user.dateNaissance| date }}</h5>
+                <h5>Badge : {{user.badge}}</h5>
+                <h5>Email : {{user.email}}</h5>
+                <h5>Mot de passe : "********"</h5>
+                <a class="btn btn-primary my-3" (click)="displayForm()">Modifier mon profil</a>
+                <a class="btn btn-danger my-3 ms-3" (click)="displayFormPsw()">Modifier mot de passe</a>
+            </div>-->
+        </div>
+    </div>
+    <app-user-form *ngIf="afficher2 == true" (notification)="displayProfile($event)" [user]=user></app-user-form>
+    <app-update-psw-form *ngIf="afficher3 == true" [user]=user (notification2)="displayProfile2($event)">
+    </app-update-psw-form>
+
+</div>
