@@ -1,0 +1,48 @@
+<button class="btn btn-success my-3 w-25" routerLink="/AddCodePromo"> <i class="fas fa-plus"></i>Add Code Pomo</button>
+<br>
+<div class="form-group">
+
+</div>
+<div  class="container">
+  <input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+         [(ngModel)]="searchTerm" (input)="search()"  placeholder="Enter text to search"
+         autofocus>
+
+</div>
+<div class="container">
+
+   <div class="table-responsive-xl">
+    <table class="table table-striped " >
+      <thead class=""> <!-- bg-primary -->
+      <tr>
+        <th  scope="col" class="text-center "(click)="sort('id')" >Identifiant   &nbsp; <i class="fa fa-sort"></i> </th>
+        <th scope="col" class="text-center ">Cle promo</th>
+        <th  scope="col" class="text-center " (click)="sort('dateFin')">Date fin  &nbsp; <i class="fa fa-sort"></i> </th>
+        <th  scope="col" class="text-center " (click)="sort('valeur')">Valeur &nbsp; <i class="fa fa-sort"></i></th>
+        <th  scope="col" class="text-center ">Désactiver</th>
+        <th  scope="col" class="text-center ">Mise à jour</th>
+        <th  scope="col" class="text-center ">Génerer QrCode</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let code of codes | orderBy: key: reverse| paginate :{itemsPerPage:5, currentPage:p} ;">
+        <td  scope="col" class="text-center ">{{code.idCodePomo}}</td>
+        <td  scope="col" class="text-center ">{{code.cle}}</td>
+        <td  scope="col" class="text-center ">{{code.dateFin| date:'yyyy-MM-dd hh:mm'}}</td>
+        <td  scope="col" class="text-center ">{{code.valeur}}%</td>
+        <td  scope="col" class="text-center "><button class="btn btn-outline-danger" (click)="deleteCode(code)" ><i class="fas fa-times-circle"></i></button></td>
+        <td  scope="col" class="text-center "><button class="btn btn-outline-success" (click)="updateCode(code.idCodePomo)"><i class="fas fa-edit"></i></button></td>
+        <td  scope="col" class="text-center "><button class="btn btn-outline-secondary" (click)="genererQrCode(code)"><i class="fa fa-qrcode" aria-hidden="true"></i></button></td>
+
+      </tr>
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"> </pagination-controls>
+    </table>
+  </div>
+</div>
+<ngx-qrcode
+  [elementType]="elementType"
+  [errorCorrectionLevel]="correctionLevel"
+  [value]="value" [colorDark]="blueColor"
+  cssClass="bshadow"></ngx-qrcode>
+<!--<textarea [(ngModel)] = "value"></textarea>-->

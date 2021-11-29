@@ -1,0 +1,30 @@
+<h3>Create code</h3>
+<div style="width: 400px;" >
+  <form  [formGroup]="myForm" (ngSubmit)="save(myForm)">
+    <div class="form-group">
+      <label >Clé promo</label>
+      <input type="text" class="form-control" id="cle" required formControlName="cle" [ngClass]="{ 'is-invalid': submitted && f.cle.errors }" >
+      <div *ngIf="submitted && f.cle.errors" class="invalid-feedback">
+        <div *ngIf="f.cle.errors.required">cle is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label >Date fin</label>
+      <input type="datetime-local"  class="form-control" id="dateFin" required formControlName="dateFin">
+    </div>
+
+    <div class="form-group">
+      <label >Valeur</label>
+      <input type="number" class="form-control" id="valeur" required formControlName="valeur" [ngClass]="{ 'is-invalid': submitted && f.valeur.errors }" >
+      <div *ngIf="submitted && f.valeur.errors" class="invalid-feedback">
+        <div *ngIf="f.valeur.errors.required">valeur is required</div>
+
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
