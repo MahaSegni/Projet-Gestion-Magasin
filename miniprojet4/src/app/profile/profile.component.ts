@@ -20,9 +20,7 @@ export class ProfileComponent implements OnInit {
     this.afficher2 = false
     this.afficher3 = false
     this.user = this.session.getUser();
-    if (this.user == null){
-      this.route.navigate(['/connection'])
-    } 
+       
   }
   displayForm(){
     this.afficher = true;

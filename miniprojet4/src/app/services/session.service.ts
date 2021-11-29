@@ -6,8 +6,7 @@ import { User } from '../Model/user';
 })
 export class SessionService {
 
-
-  constructor() {
+    constructor() {
 
   }
   getUser(): User {

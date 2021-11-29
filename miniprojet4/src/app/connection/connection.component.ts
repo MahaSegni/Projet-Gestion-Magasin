@@ -11,35 +11,34 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./connection.component.css']
 })
 export class ConnectionComponent implements OnInit {
-  loginError : boolean;
-  connectionForm : FormGroup;
-  constructor(private fb:FormBuilder, private us:UserService, private route : Router,private session : SessionService) { }
+  loginError: boolean;
+  connectionForm: FormGroup;
+  constructor(private fb: FormBuilder, private us: UserService, private route: Router, private session: SessionService) { }
 
   ngOnInit(): void {
     this.loginError = false;
     this.connectionForm = this.fb.group(
       {
-        'email' : ['',[Validators.required,Validators.email]],
-        'psw': ['',Validators.required],
+        'email': ['', [Validators.required, Validators.email]],
+        'psw': ['', Validators.required],
       }
     )
   }
 
-  connecter(f:FormGroup){
-    let response =this.us.doConnection(f.value.email,f.value.psw);
-    response.subscribe((data)=>
-    {
-      if(data.idUser !=0)
-      {
+  connecter(f: FormGroup) {
+    let response = this.us.doConnection(f.value.email, f.value.psw);
+    response.subscribe((data) => {
+      if (data.idUser != 0) {
         this.session.setUser(data)
+        console.log(this.session.getUser().token)
         this.loginError = false;
         this.route.navigate(['/home']);
-      }else{
-          this.loginError = true;
+      } else {
+        this.loginError = true;
       }
     });
   }
-  
+
 
 
 }

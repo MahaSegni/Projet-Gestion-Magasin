@@ -11,6 +11,7 @@ export class User{
     email: string;
     password: string;
     urlpicture: string;
+    token : string;
     badge: string;
     promoActive: boolean;
     factures: Facture[];
