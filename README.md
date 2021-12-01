@@ -1,11 +1,10 @@
 # Les projets
- 
- miniprojet4 : la partie Angular Front End.
- mini-priojet : la pratie Spring.
+  miniprojet4 : la partie Angular Front End.
+  mini-priojet : la pratie Spring.
  
 
 # miniprojet 4
-  dans le projet miniprojet4 (projet Angular) vous trouvez tous le composants dans miniprojet4/src/app.
+  dans le projet miniprojet4 (projet Angular) vous trouvez tous les composants dans miniprojet4/src/app.
    
 # Les composants :
   Inscription : pour l'inscription de l'utilisateur (verification mail demandé).  
