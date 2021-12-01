@@ -1,7 +1,7 @@
 # Les projets
  
- miniprojet4 : la partie Angular Front End
- mini-priojet : la pratie Spring
+ miniprojet4 : la partie Angular Front End.
+ mini-priojet : la pratie Spring.
  
 
 # miniprojet 4
