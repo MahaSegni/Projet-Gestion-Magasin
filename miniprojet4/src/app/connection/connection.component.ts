@@ -30,7 +30,6 @@ export class ConnectionComponent implements OnInit {
     response.subscribe((data) => {
       if (data.idUser != 0) {
         this.session.setUser(data)
-        console.log(this.session.getUser().token)
         this.loginError = false;
         this.route.navigate(['/home']);
       } else {

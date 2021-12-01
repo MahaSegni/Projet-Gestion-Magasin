@@ -49,14 +49,8 @@ export class InscriptionComponent implements OnInit {
       this.codeI = data}
     )
     this.registerForm = false;
-    
-    /*let response =this.us.doRegistration(this.user);
-    response.subscribe();
-    this.route.navigate(['/connection']);*/
   }
   confirmerCode() {
-    console.log(this.codeI)
-    console.log(this.inscriptionForm.value.code)
     if (this.inscriptionForm.value.code === this.codeI) {
       let response = this.us.doRegistration(this.user);
       response.subscribe();

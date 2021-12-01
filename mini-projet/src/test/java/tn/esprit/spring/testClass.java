@@ -39,7 +39,7 @@ public class testClass {
 	@Autowired
 	FactureRepository fs;
 	
-	@Ignore
+	//@Ignore
 	@Test
 	public void addProduit() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

@@ -20,7 +20,7 @@ export class MainUserComponent implements OnInit {
     }
     else if (this.session.getUser().badge != 'Moderateur'){
       this.route.navigate(['/home'])
-    }*/
+    }/*/
     let response =this.us.getUsers(this.session.getUser().idUser);
     response.subscribe((data)=>
     this.listUsers = (data)
