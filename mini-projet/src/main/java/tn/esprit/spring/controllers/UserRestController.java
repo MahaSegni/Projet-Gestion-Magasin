@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import net.bytebuddy.utility.RandomString;
 import tn.esprit.spring.entities.User;
@@ -172,5 +174,21 @@ public class UserRestController {
 		}
 		
 	}
+	
+	@PostMapping("/uploadImage/{user-id}")
+	public User uploadFile(@RequestParam("file") MultipartFile file,@PathVariable("user-id") Long id,@RequestHeader(value = "authorization", defaultValue = "") String auth) {
+
+		User u = userService.retrieveUser(id);
+		if (u.getToken().equals(auth)) {
+		u.setUrlpicture(file.getOriginalFilename());
+		userService.updateUser(u);
+		userService.saveImage(file);
+		return u;}
+		else
+		{
+			return null;
+		}
+		}
+	
 
 }

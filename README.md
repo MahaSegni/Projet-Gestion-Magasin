@@ -24,3 +24,5 @@
   Veuillez vérifier le fichier application.properties dans "src / main / resources" dans la partie Spring et ajoutez (nom d'utilisateur) et (mot de passe) de système de gestion de bases de données et créer la base bien sûr . 
 
   Si vous souhaitez ajouter un modérateur (administrateur) vous trouverez dans la partie Spring dans le dossier "src/test/java" il existe une classe de test (testClasse) veuillez l'exécuter en tant que JunitTest et un modérateur avec l'adresse e-mail med@mod et le mot de passe 1234 sera ajouté.
+
+  Veuillez changer le "root" (emplacement des images) dans le fichier "src/main/java/ tn.esprit.spring.services.UserServiceImpl)

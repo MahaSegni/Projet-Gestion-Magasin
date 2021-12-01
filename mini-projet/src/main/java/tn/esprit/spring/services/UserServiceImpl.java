@@ -1,5 +1,8 @@
 package tn.esprit.spring.services;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -7,6 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import tn.esprit.spring.entities.User;
 import tn.esprit.spring.repositories.UserRepository;
@@ -15,6 +19,7 @@ import tn.esprit.spring.repositories.UserRepository;
 public class UserServiceImpl implements UserService{
 	@Autowired
 	UserRepository userRepository;
+	private final Path root = Paths.get("D:/CSAProjects/miniprojet4/miniProjet4twin/miniprojet4/src/assets/img/UserPictures");
 
 	@Override
 	public List<User> retrieveAllUsers() {
@@ -66,6 +71,19 @@ public class UserServiceImpl implements UserService{
 		}
 		
 	}
+
+	@Override
+	public void saveImage(MultipartFile file) {
+		try {
+				
+		       Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
+		      
+		    } catch (Exception e) {
+		      throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
+		    }
+		
+	}
+	
 	
 
 

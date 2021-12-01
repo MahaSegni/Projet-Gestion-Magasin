@@ -24,6 +24,10 @@
         <label>Date naissance</label>
         <input type="date" class="form-control form-control-user" formControlName="datenaissance">
     </div>
+    <div class="form-group">
+        <label>Image</label>
+        <input type="file" class="btn btn-user" formControlName="picture" (change)="selectFile($event)">
+    </div>
 
     <div class="alert alert-danger mt-2"
         *ngIf="userModificationForm.controls['datenaissance'].invalid && userModificationForm.controls['datenaissance'].touched">
