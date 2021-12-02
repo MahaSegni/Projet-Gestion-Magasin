@@ -11,6 +11,16 @@ export class SessionService {
   constructor() {
 
   }
+  setSession(){
+    if(localStorage.getItem('user')==null){
+      let user=new User("mehdi.maalawi@esprit.tn","1234","Fidele");
+      localStorage.setItem('user',JSON.stringify(user));
+    }
+    if(localStorage.getItem('panier')==null){
+      let p:Panier[]=[];
+      localStorage.setItem('panier',JSON.stringify(p));
+    }
+  }
   getUser(): User {
     let user: User
     let data: any;
@@ -49,7 +59,7 @@ export class SessionService {
 
   getSessionType(): string {
     //let user = this.getUser()
-    let user=new User("","","Moderateur");
+    let user=new User("mehdi.maalawi@esprit.tn","1234","Fidele");
     if (user != null) {
       if (user.badge === 'Fidele' || user.badge == "Ordinaire" || user.badge === 'Premium') {
         return 'USER';

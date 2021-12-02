@@ -1,17 +1,26 @@
-
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+  <div class="container-fluid">
+    <div *ngIf="getUserType()!='MODERATEUR'" class="brand-text mx-3 ">M<sup>4</sup>E</div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown"  [class.active]="check1" (click)="changeCheck1()" *ngIf="getUserType()!='MODERATEUR'" >
 
-
-
-  <ul class="navbar-nav ml-auto">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item" *ngIf="getUserType()!='MODERATEUR'">
-          <a class="nav-link active" [class.active]="check1" (click)="changeCheck1()" aria-current="page"
-             routerLink="">Les Produits</a>
+          <a class="nav-link"  id="navbarDropdownp" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a>produit</a></a>
+          <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownp " >
+            <div *ngFor="let cat of listCatP">
+              <li><a class="dropdown-item"  [routerLink]="['/produit',cat.idCategorieProduit ]">
+                {{cat.libelle}} </a></li>
+            </div>
+          </ul>
         </li>
+
+
         <li class="nav-item" *ngIf="getUserType()==='USER'">
-          <a class="nav-link" [class.active]="check2" (click)="changeCheck2()" routerLink="" >Utiliser un code Promo</a>
+          <a class="nav-link" [class.active]="check2" (click)="changeCheck2()" routerLink="" >Utiliser Code Promo</a>
         </li>
         <li class="nav-item"  *ngIf="getUserType()==='NL'">
           <a class="nav-link" [class.active]="check3" (click)="changeCheck3()" routerLink="">Se connecter</a>
@@ -19,18 +28,18 @@
         <li class="nav-item" *ngIf="getUserType()==='NL'">
           <a class="nav-link" [class.active]="check4" (click)="changeCheck4()" routerLink="" >S'inscrire</a>
         </li>
-        <li class="nav-item dropdown" *ngIf="getUserType()==='USER'">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown "  *ngIf="getUserType()==='USER'" >
+          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Profil</a></li>
             <li><a class="dropdown-item" href="#">Panier</a></li>
           </ul>
         </li>
-      </ul>
+              </ul>
     </div>
-
-  </ul>
-
+  </div>
 </nav>
-

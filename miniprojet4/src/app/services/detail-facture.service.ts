@@ -13,6 +13,9 @@ export class DetailFactureService {
   public deleteDetailFacture(id:number){
     return this.myhttp.delete("http://localhost:8081/SpringMVC/DetailFacture/remove/"+id);
   }
+  public add(detail:DetailFacture,id:number){
+    return this.myhttp.post("http://localhost:8081/SpringMVC/DetailFacture/add/"+id,detail)
+  }
   public UpdateDetailFacture(df:DetailFacture):Observable<DetailFacture>{
     return this.myhttp.put<DetailFacture>("http://localhost:8081/SpringMVC/DetailFacture/modify",df);
   }

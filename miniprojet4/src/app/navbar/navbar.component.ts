@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { SessionService } from '../services/session.service';
+import {CategorieProduitService} from "../services/categorie-produit.service";
+import {CategorieProduit} from "../Model/CategorieProduit";
 
 @Component({
   selector: 'app-navbar',
@@ -7,14 +9,19 @@ import { SessionService } from '../services/session.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
   check1:boolean;
   check2:boolean;
   check3:boolean;
   check4:boolean;
-  constructor(private session:SessionService) {
+
+  listCatP:any;
+
+  constructor(private session:SessionService,private  service:CategorieProduitService) {
    }
 
   ngOnInit(): void {
+    this.service.afficherCategoriesProduit().subscribe((data)=>this.listCatP=data);
     this.check1 = true;
     this.check2 = false;
     this.check3 = false;
@@ -48,4 +55,5 @@ export class NavbarComponent implements OnInit {
 
     return this.session.getSessionType();
   }
+
 }

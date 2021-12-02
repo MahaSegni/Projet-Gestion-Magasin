@@ -31,12 +31,13 @@ export class FactureComponent implements OnInit {
     this.facture=f;
     this.displayall=false;
   }
-  delete(id:number) {
-    this.factureService.deleteFacture(id).subscribe(()=> {
-      this.factureService.getFactures().subscribe((res)=> {
-        this.factureList=res;
+  delete(id:number) {//if(confirm("SUPPRIMER ? ")) {
+      this.factureService.deleteFacture(id).subscribe(() => {
+        this.factureService.getFactures().subscribe((res) => {
+          this.factureList = res;
+        });
       });
-    });
+    //}
   }
   supprimerDetail(id:number) {
     this.detailFactureService.deleteDetailFacture(id).subscribe(()=> {
@@ -55,9 +56,9 @@ export class FactureComponent implements OnInit {
     });
   }
   updateDetailFactureQuantite(df:DetailFacture){
-
     this.detailFactureService.UpdateDetailFactureQuantite(df).subscribe(()=> {
       this.factureService.updateMontant(this.facture.idFacture);
+
       this.factureService.getFacture(this.facture.idFacture).subscribe((res)=> {
         this.facture=res;
         this.factureService.getFacture(this.facture.idFacture).subscribe(res=>{

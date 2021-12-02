@@ -1,0 +1,22 @@
+<div *ngIf="getUserType()==='MODERATEUR'" >
+<div class="card" *ngFor="let l of listReclamation ">
+
+  <h5 class="card-header">{{l.user.nom}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{l.objet}}</h5>
+    <p class="card-text">{{l.messageReclamation}}</p>
+    <a href="#" class="btn btn-primary" [routerLink]="['/espaceReclamation',l.idReclamation]">Consulter Reclamation</a>
+  </div>
+</div>
+</div>
+<div *ngIf="getUserType()!='MODERATEUR'" >
+  <div class="card" *ngFor="let l of listReclamationFront ">
+
+    <h5 class="card-header">{{l.user.nom}}</h5>
+    <div class="card-body">
+      <h5 class="card-title">{{l.objet}}</h5>
+      <p class="card-text">{{l.messageReclamation}}</p>
+      <a href="#" class="btn btn-primary" [routerLink]="['/espaceReclamation',l.idReclamation]" >Consulter Reclamation</a>
+    </div>
+  </div>
+</div>
