@@ -49,5 +49,9 @@ export class UserService {
     return this.http.get<string>("http://localhost:8080/SpringMVC/user/verificationmail/"+email,{responseType:'text' as 'json'})
   }
 
+  public checkUser(email:string) : Observable<Boolean>{
+    return this.http.get<Boolean>("http://localhost:8080/SpringMVC/user/checkUser/"+email)
+  }
+
   
 }

@@ -83,6 +83,19 @@ public class UserRestController {
 		}
 	}
 	
+	@GetMapping("/checkUser/{email}")
+	@ResponseBody
+	public boolean checkUser(@PathVariable String email) {
+		List<User> list = userService.retrieveAllUsers();
+		for (User u2 : list) {
+			if (u2.getEmail().equals(email)) {
+				return true;
+			}
+		}
+		return false;
+		
+	}
+	
 	@PostMapping("/add-user")
 	@ResponseBody
 	public User addUser(@RequestBody User u) {

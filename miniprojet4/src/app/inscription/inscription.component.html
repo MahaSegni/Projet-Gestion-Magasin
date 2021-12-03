@@ -57,6 +57,9 @@
             *ngIf="inscriptionForm.controls['psw'].value != inscriptionForm.controls['confirmPsw'].value && inscriptionForm.controls['confirmPsw'].dirty">
             <div>Confirmer le mot de passe</div>
         </div>
+        <div class="alert alert-danger mt-2" *ngIf="error2 == true">
+            <div>Un compte avec cette adresse mail existe déja</div>
+        </div>
         <div class="mt-3">
             <button class="btn btn-primary mr-3 btn-user" (click)="inscription(inscriptionForm)"
                 [disabled]="inscriptionForm.invalid || inscriptionForm.controls['psw'].value != inscriptionForm.controls['confirmPsw'].value && inscriptionForm.controls['confirmPsw'].dirty">S'inscrire</button>
