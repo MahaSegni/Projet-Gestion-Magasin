@@ -7,7 +7,7 @@ import { SessionService } from './session.service';
 @Injectable({
   providedIn: 'root'
 })
-export class FileUploadService {
+export class imageService {
 
   constructor(private httpClient : HttpClient, private session:SessionService) { }
   postFileUser(file: FormData,id : Number):Observable<any> {
