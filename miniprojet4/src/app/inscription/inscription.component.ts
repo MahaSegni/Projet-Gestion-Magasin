@@ -67,7 +67,7 @@ export class InscriptionComponent implements OnInit {
     if (this.inscriptionForm.value.code === this.codeI) {
       let response = this.us.doRegistration(this.user);
       response.subscribe();
-      this.route.navigate(['/connection']);
+      this.route.navigate(['/connexion']);
     } else {
       this.error = true;
     }

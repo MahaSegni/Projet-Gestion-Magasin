@@ -76,7 +76,7 @@ export class ForgetPasswordComponent implements OnInit {
     console.log(user);
     let response = this.us.forgetPassword(user);
     response.subscribe();
-    this.route.navigate(['/connection']);
+    this.route.navigate(['/connexion']);
     
   }
 
