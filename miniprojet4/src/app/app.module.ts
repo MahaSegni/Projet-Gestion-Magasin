@@ -16,6 +16,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { UpdatePswFormComponent } from './update-psw-form/update-psw-form.component';
 import { MainUserComponent } from './main-user/main-user.component';
 import { UserComponent } from './user/user.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UserComponent } from './user/user.component';
     UpdatePswFormComponent,
     MainUserComponent,
     UserComponent,
+    ForgetPasswordComponent,
   ],
   imports: [
     BrowserModule,
