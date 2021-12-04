@@ -13,15 +13,17 @@ export class User{
     urlpicture: string;
     badge: string;
     promoActive: boolean;
+    token:string;
     factures: Facture[];
     likedislike: LikeDislike[];
     codepromo: CodePromo;
     reclamations: Reclamation[]
 
-    constructor(email:string="",password:string="",badge:string=""){
+    constructor(id:number,email:string="",password:string="",badge:string=""){
+      this.idUser=id;
       this.email = email;
       this.password = password;
       this.badge = badge;
     }
+
   }
-  

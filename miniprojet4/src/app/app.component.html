@@ -1,18 +1,17 @@
 <div id="wrapper">
   <app-sidemenu *ngIf="getUserType()=='MODERATEUR'"></app-sidemenu>
-  <div id="content-wrapper" class="d-flex flex-column">
+  <div  id="content-wrapper" class="d-flex flex-column">
     <div id="content">
-      <app-navbar></app-navbar>
-      <div class="container-fluid">
-        <!--Content Here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-        <router-outlet></router-outlet>
+      <app-navbar *ngIf="getUserType()!='MODERATEUR'" ></app-navbar>
+      <div class="container-fluid" style="height: 100vh;">
+     <router-outlet></router-outlet>
       </div>
-      <!--      <app-footer></app-footer>
- -->
 
+    </div>
+    <app-footer></app-footer>
   </div>
 </div>
-</div>
+
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
