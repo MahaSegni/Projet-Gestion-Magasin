@@ -37,6 +37,24 @@ public class UserRestController {
 	@Autowired
 	EmailSender emailSender;
 	
+	
+	@PostMapping("/forgetPassword")
+	@ResponseBody
+	public boolean updatePswd(@RequestBody User u) {
+		List<User> list = userService.retrieveAllUsers();
+		for (User u2 : list) {
+			if (u2.getEmail().equals(u.getEmail())) {
+				String pass = userService.doHashing(u.getPassword());
+				u2.setPassword(pass);
+				userService.updateUser(u2);
+				return true	;
+			}
+		}
+		return false;
+		
+		
+	}
+	
 	@GetMapping("/verificationmail/{mail}")
 	@ResponseBody
 	public String sendmail(@PathVariable("mail") String email){
@@ -189,6 +207,7 @@ public class UserRestController {
 	}
 	
 	@PostMapping("/uploadImage/{user-id}")
+	@ResponseBody
 	public User uploadFile(@RequestParam("file") MultipartFile file,@PathVariable("user-id") Long id,@RequestHeader(value = "authorization", defaultValue = "") String auth) {
 
 		User u = userService.retrieveUser(id);
@@ -201,7 +220,7 @@ public class UserRestController {
 		{
 			return null;
 		}
-		}
+	}
 	
 
 }

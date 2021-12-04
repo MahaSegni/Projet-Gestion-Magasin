@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from '../Model/user';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -8,14 +10,21 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./forget-password.component.css']
 })
 export class ForgetPasswordComponent implements OnInit {
-
+  
+  pswUpdated : boolean;
+  codeI : string;
+  errorCode : boolean;
+  errorEmail : boolean;
   displayEmail : boolean;
   displayCode : boolean;
   displayUpdate : boolean;
-  constructor(private fb : FormBuilder, private us:UserService) { }
+  constructor(private fb : FormBuilder, private us:UserService, private route : Router) { }
   forgetPswForm : FormGroup
 
   ngOnInit(): void {
+    this.pswUpdated = false;
+    this.errorEmail = false;
+    this.errorCode = false;
     this.displayEmail = true;
     this.displayCode = false;
     this.displayUpdate = false;
@@ -30,17 +39,45 @@ export class ForgetPasswordComponent implements OnInit {
 
   }
   sendMail(){
-    this.displayEmail = false;
-this.displayCode = true;
+    let resp = this.us.checkUser(this.forgetPswForm.value.email);
+    resp.subscribe((data) => 
+    {
+      if (data == false) 
+      {
+        this.errorEmail = true;
+      }else 
+      {
+        let response = this.us.sendMail(this.forgetPswForm.value.email)
+        response.subscribe((data) => {
+          this.codeI = data
+        }) 
+        this.displayEmail = false;
+        this.displayCode = true; 
+      }
+    })
+    
   }
 
   confirmCode(){
-    this.displayCode = false;
-this.displayUpdate = true;
+    if (this.forgetPswForm.value.code === this.codeI) {
+      this.displayCode = false;
+      this.displayUpdate = true;
+    }else{
+      this.errorCode = true;
+    }
+    
   }
 
   updatePsw(){
-
+    let user = new User();
+    user.email = this.forgetPswForm.value.email;
+    user.password = this.forgetPswForm.value.psw;
+    user.badge = "Ordinaire";
+    console.log(user);
+    let response = this.us.forgetPassword(user);
+    response.subscribe();
+    this.route.navigate(['/connection']);
+    
   }
 
 }

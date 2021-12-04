@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../Model/user';
-import { FileUploadService } from '../services/file-upload.service';
+import { FileUploadService } from '../services/image.service';
 import { SessionService } from '../services/session.service';
 import { UserService } from '../services/user.service';
 
@@ -46,7 +46,7 @@ export class UserFormComponent implements OnInit {
       if(this.InputImage!=""){
       const formdata=new FormData();
       formdata.append('file',this.userFile,this.InputImage);
-      this.fileUploadService.postFileProd(formdata,this.session.getUser().idUser).subscribe((data)=> {
+      this.fileUploadService.postFileUser(formdata,this.session.getUser().idUser).subscribe((data)=> {
         this.user2 = data
         this.session.setUser(this.user2);
       });
