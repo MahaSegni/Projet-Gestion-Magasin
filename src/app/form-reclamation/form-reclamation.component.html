@@ -1,0 +1,56 @@
+<div *ngIf="updateReclamation==null">
+  <h1 class="text-center">Ajouter Reclamation</h1>
+</div>
+<div *ngIf="updateReclamation!=null">
+  <h1 class="text-center">Modifier Reclamation</h1>
+</div>
+<form class="w-50 mx-auto mb-5 mt-2" [formGroup]="FormRec" (ngSubmit)="saveRec(FormRec)">
+  <div class="form-group" hidden>
+    <input type="text" class="form-control" formControlName="idReclamation" >
+  </div>
+
+  <div>
+    <div class="form-group">
+      <label>Objet</label>
+      <input type="text" class="form-control" formControlName="objet"  >
+    </div>
+    <br>
+    <div class="alert alert-danger" *ngIf="FormRec.controls['objet'].invalid && FormRec.controls['objet'].touched">*Objet Obligatoire </div>
+  </div>
+
+  <div>
+    <div class="form-group">
+      <label>Message Reclamation</label>
+      <input type="text" class="form-control" formControlName="messageReclamation"  >
+    </div>
+    <br>
+    <div class="alert alert-danger" *ngIf="FormRec.controls['messageReclamation'].invalid && FormRec.controls['messageReclamation'].touched">*Message Obligatoire </div>
+  </div>
+
+
+  <br>
+  <div class="form-group">
+    <label >choisir Image</label>
+    <input type="file"
+
+           class="form-control" formControlName="imageReclamation"
+           accept="images/"
+
+           (change)="uploadFiles($event)">
+    <img [src]="imgURL" height="200" *ngIf="imgURL">
+  </div>
+
+
+
+
+
+  <button class="btn btn-outline-success" type="submit"  [disabled]="FormRec.invalid" >Valider</button>
+  &nbsp;
+  <button class="btn btn-outline-primary" type="reset" >Reset</button>
+</form>
+
+
+
+
+
+

@@ -1,7 +1,13 @@
-<button class="btn btn-success my-3 w-25" routerLink="/AddCodePromo"> <i class="fas fa-plus"></i>Add Code Pomo</button>
-<br>
-<div class="form-group">
 
+<div class="container mydiv " *ngIf="getUserType()=='MODERATEUR'">
+<br>
+<button class="btn btn-outline-primary" (click)="showForm()">{{buttonValue}}</button>
+<div *ngIf="showFormTemplate">
+  <app-create-code-promo (addEvent)="save($event)" [code]="inputcode"></app-create-code-promo>
+
+</div>
+<div *ngIf="!showFormTemplate">
+<div class="form-group">
 </div>
 <div  class="container">
   <input type="text" class="form-control" id="search-text" aria-describedby="search-text"
@@ -10,7 +16,6 @@
 
 </div>
 <div class="container">
-
    <div class="table-responsive-xl">
     <table class="table table-striped " >
       <thead class=""> <!-- bg-primary -->
@@ -46,3 +51,6 @@
   [value]="value" [colorDark]="blueColor"
   cssClass="bshadow"></ngx-qrcode>
 <!--<textarea [(ngModel)] = "value"></textarea>-->
+
+</div>
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Route, Router} from "@angular/router";
-import {CodePrmoService} from "../services/code-prmo.service";
-import {CodePromo} from "../Model/CodePromo";
+import {CodePrmoService} from "../../services/code-prmo.service";
+import {CodePromo} from "../../Model/CodePromo";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({

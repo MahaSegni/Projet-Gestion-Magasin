@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {CodePrmoService} from "../services/code-prmo.service";
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {CodePrmoService} from "../../services/code-prmo.service";
 import {Route, Router} from "@angular/router";
-import {CodePromo} from "../Model/CodePromo";
+import {CodePromo} from "../../Model/CodePromo";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -10,9 +10,12 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./create-code-promo.component.css']
 })
 export class CreateCodePromoComponent implements OnInit {
-  code: CodePromo = new CodePromo() ;
+  codea: CodePromo = new CodePromo() ;
   submitted = false;
   myForm: FormGroup;
+  @Input() code:CodePromo;
+  @Output() addEvent=new EventEmitter<CodePromo>();
+
   constructor(private service: CodePrmoService,private router: Router,private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -30,6 +33,7 @@ export class CreateCodePromoComponent implements OnInit {
 
   get f() { return this.myForm.controls; }
   save(f: FormGroup) {
+    this.addEvent.emit(this.code);
     this.submitted = true;
     this.code.cle= f.value.cle;
     this.code.dateFin= f.value.dateFin;

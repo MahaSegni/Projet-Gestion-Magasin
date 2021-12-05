@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component ,Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {WishlistService} from "../services/wishlist.service";
+import {LikeDislike} from "../Model/LikeDislike";
+import {FormControl, FormGroup} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
+import {CategorieProduit} from "../Model/CategorieProduit";
+import {Produit} from "../Model/Produit";
+import {ProduitService} from "../services/produit.service";
 
 @Component({
   selector: 'app-like-dislike',
@@ -6,21 +13,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./like-dislike.component.css']
 })
 export class LikeDislikeComponent implements OnInit {
-  technologies:any;
-  constructor() { }
+  @Input() wishlist:LikeDislike;
+  @Output() addEvent=new EventEmitter<LikeDislike>();
+  myForm: FormGroup;
+  idProduit: any;   catp:any; P:Produit;
+  constructor(private ProduitService: ProduitService,private service:WishlistService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.technologies= [
-      {name: "C#", likes: 0, dislikes: 0},
-      {name: "ASP.NET", likes: 0, dislikes: 0},
-      {name: "ASP.NET MVC", likes: 0, dislikes: 0},
-      {name: "SQL", likes: 0, dislikes: 0},
-      {name: "AngularJS", likes: 0, dislikes: 0},
-      {name: "Angular 5", likes: 0, dislikes: 0},
-      {name: "JQuery", likes: 0, dislikes: 0},
-      {name: "JavaScript", likes: 0, dislikes: 0}
 
-    ];
+
+    this.service.addCode(this.idProduit).subscribe(data => {
+        console.log(data)
+
+
+      },
+      error => console.log(error));
   }
+
 
 }
