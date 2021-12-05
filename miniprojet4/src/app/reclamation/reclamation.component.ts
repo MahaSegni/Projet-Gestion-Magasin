@@ -51,6 +51,11 @@ export class ReclamationComponent implements OnInit {
   {this.showFormTemplateAdd=! this.showFormTemplateAdd;
   }
 
+  cloturer(l:Reclamation)
+  {l.cloture=!l.cloture;
+    this.saveRec(l);
+  }
+
   updateForm(rec:Reclamation)
   {  this.showFormTemplateUpdate=!this.showFormTemplateUpdate;
      this.showFormTemplateId=rec.idReclamation;

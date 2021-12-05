@@ -12,15 +12,15 @@ export class Reclamation{
   reponsesReclamation:ReponseReclamation[];
 
 
-  constructor(idReclamation: number, objet: string, messageReclamation: string, imageReclamation: string, dateReclamation: Date, user: User) {
+  constructor(idReclamation: number, objet: string, messageReclamation: string, imageReclamation: string, dateReclamation: Date, user: User,cloture:boolean) {
     this.idReclamation = idReclamation;
     this.objet = objet;
     this.messageReclamation = messageReclamation;
-    if (imageReclamation!="")
+    if (imageReclamation!="" && !imageReclamation.includes("/assets/img/"))
     { this.imageReclamation = "/assets/img/ReclamationPic/" +imageReclamation;}
     else { this.imageReclamation = imageReclamation}
     this.dateReclamation = dateReclamation;
-    this.cloture = false;
+    this.cloture = cloture ;
     this.user = user;
   }
 }

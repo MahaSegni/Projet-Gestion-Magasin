@@ -32,6 +32,7 @@
       <td>{{p.pourcentageRemise}}</td>
       <td>{{p.categorieProduit.libelle}}</td>
 
+
       <td class="align-content-center">
         <span class="btn btn-warning " type="submit"  (click)="updateForm(p)">Modifier</span>
         <span class="btn btn-danger ml-3 " type="submit" (click)="supprimerProd(p.idProduit )">Supprimer</span>
@@ -40,6 +41,9 @@
     </tbody>
   </table>
 </div>
+
+
+
 
 
 <div class="container mydiv " *ngIf="getUserType()!='MODERATEUR'">
@@ -55,7 +59,8 @@
             <div class="text-center"><img class="img-fluid w-100" style="height: 300px" src="{{p.imageProduit}}" alt=""></div>
             <div class="bbb_deals_content">
               <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
-                <div class="bbb_deals_item_category"><a href="#">{{p.categorieProduit.libelle}}</a></div>
+                <div class="bbb_deals_item_category"><a href="#">
+                  <img class="mr-2" style="width: 20px; height: 20px" src="{{p.categorieProduit.categorieProduitIcone}}">{{p.categorieProduit.libelle}}</a></div>
               </div>
               <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
                 <div class="bbb_deals_item_name">{{p.libelle}}</div>

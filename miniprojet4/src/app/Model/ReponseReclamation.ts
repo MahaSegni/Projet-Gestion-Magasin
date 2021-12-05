@@ -14,7 +14,7 @@ export class ReponseReclamation{
     this.idReponseReclamation = idReponseReclamation;
     this.reponse = reponse;
 
-    if (imageReponseReclamation!="")
+    if (imageReponseReclamation!="" && !imageReponseReclamation.includes("/assets/img/"))
     { this.imageReponseReclamation = "/assets/img/ReclamationPic/" +imageReponseReclamation;}
     else { this.imageReponseReclamation = imageReponseReclamation}
 

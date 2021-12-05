@@ -51,7 +51,6 @@ export class FormCategorieproduitComponent implements OnInit {
       reader.onload=(_event) =>{this.imgURL=reader.result}
     }
   }
-
   saveCatP(form:FormGroup){
     if(this.InputImage!=""){
       const formdata=new FormData();

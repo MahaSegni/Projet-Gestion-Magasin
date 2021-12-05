@@ -26,10 +26,11 @@ listrep:any;
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params=>{
+
       this.service.afficherReponsesReclamationByRec(params.get("Recid")).subscribe((data)=>this.listrep=data);
       this.serviceRec.getReclamation(params.get("Recid")).subscribe((data)=>{
         this.reclamation=data;
-        this.rec= new Reclamation(this.reclamation.idReclamation,this.reclamation.objet,this.reclamation.messageReclamation,this.reclamation.imageReclamation,this.reclamation.dateReclamation,this.reclamation.user);
+        this.rec= new Reclamation(this.reclamation.idReclamation,this.reclamation.objet,this.reclamation.messageReclamation,this.reclamation.imageReclamation,this.reclamation.dateReclamation,this.reclamation.user,this.reclamation.cloture);
 
         }
       )
@@ -43,8 +44,10 @@ listrep:any;
 }
 
   supprimerRepRec(id: number){
+
     let resp= this.service.supprimerReponseReclamation(id).subscribe(()=>{
       this.route.paramMap.subscribe(params=>{
+
         this.service.afficherReponsesReclamationByRec(params.get("Recid")).subscribe((data)=>this.listrep=data);
         this.serviceRec.getReclamation(params.get("Recid")).subscribe((data)=>this.reclamation=data)
       });

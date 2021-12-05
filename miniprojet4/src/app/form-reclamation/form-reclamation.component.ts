@@ -72,7 +72,7 @@ export class FormReclamationComponent implements OnInit {
     this.serviceimage.postFileRec(formdata).subscribe();
     }
     this.Rec=new Reclamation(form.value.idReclamation,form.value.objet,form.value.messageReclamation,
-      this.InputImage,new Date(Date.now()),this.session.getUser());
+      this.InputImage,new Date(Date.now()),this.session.getUser(),false);
     this.addEvent.emit(this.Rec)
   }
 }

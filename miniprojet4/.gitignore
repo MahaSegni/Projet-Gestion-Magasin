@@ -12,7 +12,7 @@
 
 # profiling files
 chrome-profiler-events*.json
-
+/.angular
 # IDEs and editors
 /.idea
 .project

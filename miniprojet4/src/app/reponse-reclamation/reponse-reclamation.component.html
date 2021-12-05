@@ -1,16 +1,20 @@
 
 <div class="container align-items-center" style="margin-top: 5%" >
   <h1 class="text-center mb-5">Espace Reclamation</h1>
+
+
   <div class="card mt-3" >
     <div class="card-header">
+
       <img class="circular--portrait d-inline"  src="{{rec.user.urlpicture}}"/>
       <h4 class="d-inline">{{rec.user.nom}}</h4> <h6 class="d-block ml-5" >{{rec.dateReclamation}}</h6>
     </div>
     <div class="card-body">
       <h5 class="card-title">{{rec.objet}}</h5>
       <p class="card-text">{{rec.messageReclamation}}</p>
+
       <img  *ngIf="rec.imageReclamation!=''" class="imageRec d-block" style="border: solid 1px "  src="{{rec.imageReclamation}}"/>
-      <a  *ngIf="!rec.cloture" (click)="showFormAdd()" class="btn btn-primary mt-4"  >Repondre</a>
+      <button  [disabled]="rec.cloture" (click)="showFormAdd()" class="btn btn-primary mt-4"  >Repondre</button>
       <app-form-reponsereclamation  [rec]="rec" *ngIf="showFormTemplateAdd" (addEvent)="saveRepRec($event)" ></app-form-reponsereclamation>
       <div class="card mt-3" *ngFor="let l of listrep" >
         <div class=" card-header d-flex align-items-start">

@@ -7,14 +7,16 @@
         <h4  >{{l.user.nom}}</h4> <h6>{{l.dateReclamation}}</h6>
       </div>
       <div class="ml-auto" >
-        <a *ngIf="!l.cloture" class="btn btn-success d-inline" >Cloturer</a>
-        <i *ngIf="l.cloture" class="fas fa-lock"></i>
+        <a *ngIf="!l.cloture" (click)="cloturer(l)" class="btn btn-success d-inline" >Cloturer</a>
+
+        <i *ngIf="l.cloture" title="cette reclamation est cloturée " (click)="cloturer(l)" class="fas fa-lock"></i>
       </div>
     </div>
     <div class="card-body">
       <h5 class="card-title">{{l.objet}}</h5>
       <p class="card-text">{{l.messageReclamation}}</p>
       <img  *ngIf="l.imageReclamation!=''" class="imageRec d-block" style="border: solid 1px "  src="{{l.imageReclamation}}"/>
+      <br>
       <a href="#" class="btn btn-primary mt-4 d-inline" [routerLink]="['/espaceReclamation',l.idReclamation]" >Consulter Reclamation</a>
     </div>
   </div>
@@ -34,13 +36,15 @@
       <div class="ml-auto">
         <button *ngIf="!l.cloture" class="btn btn-warning mt-2 " [disabled]="showFormTemplateUpdate && showFormTemplateId!=l.idReclamation" (click)="updateForm(l)">Modifier</button>
          <a *ngIf="!l.cloture" class="btn btn-danger ml-3 mt-2 " (click)="supprimerRec(l.idReclamation)" >Supprimer</a>
+         <i *ngIf="l.cloture" title="cette reclamation est cloturée vous ne pouvez ni la supprimer ni la modifier ni repondre "  class="fas fa-lock"></i>
+
       </div>
     </div>
     <div class="card-body">
       <h5 class="card-title">{{l.objet}}</h5>
       <p class="card-text">{{l.messageReclamation}}</p>
       <img  *ngIf="l.imageReclamation!=''" class="imageRec d-block" style="border: solid 1px "  src="{{l.imageReclamation}}"/>
-
+    <br>
       <a href="#" class="btn btn-primary mt-4" [routerLink]="['/espaceReclamation',l.idReclamation]" >Consulter Reclamation</a>
 
     </div>

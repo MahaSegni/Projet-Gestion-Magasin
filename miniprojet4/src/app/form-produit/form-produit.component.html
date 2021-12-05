@@ -37,19 +37,24 @@
     <div class="alert alert-danger" *ngIf="FormP.controls['dateCreation'].invalid && FormP.controls['dateCreation'].touched">*Date Creation Obligatoire </div>
   </div>
 
+
+
   <div class="form-group" *ngIf="updateProduct!=null">
     <label  >Categorie Produit</label>
     <select  [(ngModel)]="updateProduct.categorieProduit.idCategorieProduit" class="col-md-6 form-control"    class="form-control" formControlName="categorieProduit" >
+
       <option *ngFor='let cat of catsproduit'  [value]="cat.idCategorieProduit"  >{{cat.libelle}}</option>
     </select>
   </div>
   <div class="form-group" *ngIf="updateProduct==null">
     <label  >Categorie Produit</label>
     <select   class="col-md-6 form-control"    class="form-control" formControlName="categorieProduit" >
+
       <option *ngFor='let cat of catsproduit'  [value]="cat.idCategorieProduit"  >{{cat.libelle}}</option>
     </select>
   </div>
   <br>
+
 
   <div>
     <div class="form-group">
@@ -89,6 +94,7 @@
     </div>
     <br>
     <div class="alert alert-danger" *ngIf="!userFile && FormP.controls['imageProduit'].touched">*Image  Obligatoire </div>
+
   </div>
 
   <button class="btn btn-outline-success" type="submit" [disabled]="!userFile || FormP.invalid" >Valider</button>
