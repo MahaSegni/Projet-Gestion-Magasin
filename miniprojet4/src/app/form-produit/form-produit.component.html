@@ -1,0 +1,97 @@
+<div *ngIf="updateProduct==null">
+  <h1 class="text-center">Ajouter Produit</h1>
+</div>
+<div *ngIf="updateProduct!=null">
+  <h1 class="text-center">Modifier Produit</h1>
+</div>
+
+<form class="w-50 mx-auto" [formGroup]="FormP" (ngSubmit)="saveP(FormP)">
+  <div class="form-group" hidden>
+    <input type="text" class="form-control" formControlName="idProduit" >
+  </div>
+
+  <div>
+    <div class="form-group">
+      <label>Code</label>
+      <input type="text" class="form-control" formControlName="code"  >
+    </div>
+    <br>
+    <div class="alert alert-danger" *ngIf="FormP.controls['code'].invalid && FormP.controls['code'].touched">*Code Obligatoire </div>
+  </div>
+
+  <div>
+    <div class="form-group">
+      <label>Libelle</label>
+      <input type="text" class="form-control" formControlName="libelle">
+    </div>
+    <br>
+    <div class="alert alert-danger" *ngIf="FormP.controls['libelle'].invalid && FormP.controls['libelle'].touched">*Libelle Obligatoire </div>
+  </div>
+
+  <div>
+    <div class="form-group">
+      <label>Date Creation</label>
+      <input type="date" class="form-control" formControlName="dateCreation">
+    </div>
+    <br>
+    <div class="alert alert-danger" *ngIf="FormP.controls['dateCreation'].invalid && FormP.controls['dateCreation'].touched">*Date Creation Obligatoire </div>
+  </div>
+
+  <div class="form-group" *ngIf="updateProduct!=null">
+    <label  >Categorie Produit</label>
+    <select  [(ngModel)]="updateProduct.categorieProduit.idCategorieProduit" class="col-md-6 form-control"    class="form-control" formControlName="categorieProduit" >
+      <option *ngFor='let cat of catsproduit'  [value]="cat.idCategorieProduit"  >{{cat.libelle}}</option>
+    </select>
+  </div>
+  <div class="form-group" *ngIf="updateProduct==null">
+    <label  >Categorie Produit</label>
+    <select   class="col-md-6 form-control"    class="form-control" formControlName="categorieProduit" >
+      <option *ngFor='let cat of catsproduit'  [value]="cat.idCategorieProduit"  >{{cat.libelle}}</option>
+    </select>
+  </div>
+  <br>
+
+  <div>
+    <div class="form-group">
+      <label>Prix Unitaire</label>
+      <input type="number" class="form-control" formControlName="prixUnitaire">
+    </div>
+    <br>
+    <div class="alert alert-danger" *ngIf="FormP.controls['prixUnitaire'].invalid && FormP.controls['prixUnitaire'].touched">*Prix Unitaire Obligatoire </div>
+  </div>
+
+  <div>
+    <div class="form-group">
+      <label>Pourcentage Remise</label>
+      <input type="number" class="form-control" formControlName="pourcentageRemise">
+    </div>
+    <br>
+    <div class="alert alert-danger" *ngIf="FormP.controls['pourcentageRemise'].invalid && FormP.controls['pourcentageRemise'].touched">*Pourcentage Remise Obligatoire </div>
+  </div>
+
+  <div>
+    <div class="form-group">
+      <label>Quantite En Stock</label>
+      <input type="number" class="form-control" formControlName="quantiteEnStock">
+    </div>
+    <br>
+    <div class="alert alert-danger" *ngIf="FormP.controls['quantiteEnStock'].invalid && FormP.controls['quantiteEnStock'].touched">*Quantite En Stock Obligatoire </div>
+  </div>
+
+  <div>
+    <div class="form-group">
+      <label >Choisir Image</label>
+      <input type="file"
+             class="form-control" formControlName="imageProduit"
+             accept="images/"
+             (change)="uploadFiles($event)">
+      <img [src]="imgURL" height="200" *ngIf="imgURL">
+    </div>
+    <br>
+    <div class="alert alert-danger" *ngIf="!userFile && FormP.controls['imageProduit'].touched">*Image  Obligatoire </div>
+  </div>
+
+  <button class="btn btn-outline-success" type="submit" [disabled]="!userFile || FormP.invalid" >Valider</button>
+  &nbsp;
+  <button class="btn btn-outline-primary" type="reset">Reset</button>
+</form>

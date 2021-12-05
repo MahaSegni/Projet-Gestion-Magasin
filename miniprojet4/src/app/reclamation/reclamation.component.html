@@ -1,0 +1,54 @@
+<div *ngIf="getUserType()==='MODERATEUR'" style="margin-top: 5%" >
+  <h1 class="text-center mb-5">Espace Reclamation</h1>
+  <div class="card mt-3" *ngFor="let l of listReclamation ">
+    <div class=" card-header d-flex align-items-start">
+      <img class="circular--portrait "  src="{{l.user.urlpicture}}"/>
+      <div class="d-flex flex-column">
+        <h4  >{{l.user.nom}}</h4> <h6>{{l.dateReclamation}}</h6>
+      </div>
+      <div class="ml-auto" >
+        <a *ngIf="!l.cloture" class="btn btn-success d-inline" >Cloturer</a>
+        <i *ngIf="l.cloture" class="fas fa-lock"></i>
+      </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{l.objet}}</h5>
+      <p class="card-text">{{l.messageReclamation}}</p>
+      <img  *ngIf="l.imageReclamation!=''" class="imageRec d-block" style="border: solid 1px "  src="{{l.imageReclamation}}"/>
+      <a href="#" class="btn btn-primary mt-4 d-inline" [routerLink]="['/espaceReclamation',l.idReclamation]" >Consulter Reclamation</a>
+    </div>
+  </div>
+
+</div>
+<div class="container" *ngIf="getUserType()!='MODERATEUR' " style="margin-top: 5%" >
+  <h1 class="text-center mb-5">Espace Reclamation</h1>
+  <a class="btn btn-success my-3 w-25" (click)="showFormAdd()">Ajouter Reclamation</a>
+  <app-form-reclamation *ngIf="showFormTemplateAdd" (addEvent)="saveRec($event)" ></app-form-reclamation>
+  <div class="card mt-3" *ngFor="let l of listReclamationFront ">
+    <div class=" card-header d-flex align-items-start">
+      <img class="circular--portrait "  src="{{l.user.urlpicture}}"/>
+      <div class="d-flex flex-column">
+        <h4  >{{l.user.nom}}</h4> <h6>{{l.dateReclamation}}</h6>
+      </div>
+
+      <div class="ml-auto">
+        <button *ngIf="!l.cloture" class="btn btn-warning mt-2 " [disabled]="showFormTemplateUpdate && showFormTemplateId!=l.idReclamation" (click)="updateForm(l)">Modifier</button>
+         <a *ngIf="!l.cloture" class="btn btn-danger ml-3 mt-2 " (click)="supprimerRec(l.idReclamation)" >Supprimer</a>
+      </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{l.objet}}</h5>
+      <p class="card-text">{{l.messageReclamation}}</p>
+      <img  *ngIf="l.imageReclamation!=''" class="imageRec d-block" style="border: solid 1px "  src="{{l.imageReclamation}}"/>
+
+      <a href="#" class="btn btn-primary mt-4" [routerLink]="['/espaceReclamation',l.idReclamation]" >Consulter Reclamation</a>
+
+    </div>
+    <app-form-reclamation  *ngIf="showFormTemplateUpdate && showFormTemplateId==l.idReclamation"  (addEvent)="saveRec($event)" [updateReclamation]="inputReclamation"></app-form-reclamation>
+
+  </div>
+
+
+</div>
+
+

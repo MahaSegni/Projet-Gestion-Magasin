@@ -1,0 +1,82 @@
+<div *ngIf="getUserType()==='MODERATEUR'">
+  <button class="btn btn-success my-3 w-25" (click)="showForm()">Ajouter</button>
+  <app-form-produit (addEvent)="saveProduct($event)" [updateProduct]="inputProduct" *ngIf="showFormTemplate"></app-form-produit>
+  <table class="table" *ngIf="!showFormTemplate">
+    <thead>
+    <tr>
+      <th scope="col" class="text-center ">id</th>
+      <th scope="col" class="text-center ">code</th>
+      <th scope="col" class="text-center ">libelle</th>
+      <th scope="col" class="text-center ">dateCreation</th>
+      <th scope="col" class="text-center ">dateDerniereModification</th>
+      <th scope="col" class="text-center ">prixUnitaire</th>
+      <th scope="col" class="text-center ">rayon</th>
+      <th scope="col" class="text-center ">imageProduit</th>
+      <th scope="col" class="text-center ">quantiteEnStock</th>
+      <th scope="col" class="text-center ">pourcentageRemise</th>
+      <th scope="col" class="text-center ">categorieProduit</th>
+      <th scope="col" class="" >actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of listProduit">
+      <th scope="row">{{p.idProduit}}</th>
+      <td>{{p.code}}</td>
+      <td>{{p.libelle}}</td>
+      <td>{{p.dateCreation}}</td>
+      <td>{{p.dateDerniereModification}}</td>
+      <td>{{p.prixUnitaire}}</td>
+      <td>{{p.rayon}}</td>
+      <td><img class="img-fluid " style="height: 100px ;width:100px" src="{{p.imageProduit}}" alt=""></td>
+      <td>{{p.quantiteEnStock}}</td>
+      <td>{{p.pourcentageRemise}}</td>
+      <td>{{p.categorieProduit.libelle}}</td>
+
+      <td class="align-content-center">
+        <span class="btn btn-warning " type="submit"  (click)="updateForm(p)">Modifier</span>
+        <span class="btn btn-danger ml-3 " type="submit" (click)="supprimerProd(p.idProduit )">Supprimer</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container mydiv " *ngIf="getUserType()!='MODERATEUR'">
+
+  <div class="row" >
+    <div class="col-md-4" *ngFor="let p of listProduitFront ">
+      <!-- bbb_deals -->
+      <div class="bbb_deals">
+        <div class=" ribbon1 text-uppercase"><span> ref: {{p.code}}</span></div>
+        <div class="bbb_deals_title">{{p.libelle}}</div>
+        <div class="bbb_deals_slider_container">
+          <div class=" bbb_deals_item">
+            <div class="text-center"><img class="img-fluid w-100" style="height: 300px" src="{{p.imageProduit}}" alt=""></div>
+            <div class="bbb_deals_content">
+              <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                <div class="bbb_deals_item_category"><a href="#">{{p.categorieProduit.libelle}}</a></div>
+              </div>
+              <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                <div class="bbb_deals_item_name">{{p.libelle}}</div>
+                <div class="bbb_deals_item_price ml-auto">{{p.prixUnitaire}}dt</div>
+              </div>
+              <div class="available">
+                <div class="available_line d-flex flex-row justify-content-start">
+                  <div class="available_title">Quantité: <span>{{p.quantiteEnStock}}</span></div>
+                  <div class="sold_stars ml-auto"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                </div>
+
+              </div>
+            </div>
+            <a routerLink="" class="btn btn-primary mt-3 w-100"> <i class="fas fa-shopping-cart"></i>Ajouter au panier</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,41 @@
+
+<div class="container align-items-center" style="margin-top: 5%" >
+  <h1 class="text-center mb-5">Espace Reclamation</h1>
+  <div class="card mt-3" >
+    <div class="card-header">
+      <img class="circular--portrait d-inline"  src="{{rec.user.urlpicture}}"/>
+      <h4 class="d-inline">{{rec.user.nom}}</h4> <h6 class="d-block ml-5" >{{rec.dateReclamation}}</h6>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{rec.objet}}</h5>
+      <p class="card-text">{{rec.messageReclamation}}</p>
+      <img  *ngIf="rec.imageReclamation!=''" class="imageRec d-block" style="border: solid 1px "  src="{{rec.imageReclamation}}"/>
+      <a  *ngIf="!rec.cloture" (click)="showFormAdd()" class="btn btn-primary mt-4"  >Repondre</a>
+      <app-form-reponsereclamation  [rec]="rec" *ngIf="showFormTemplateAdd" (addEvent)="saveRepRec($event)" ></app-form-reponsereclamation>
+      <div class="card mt-3" *ngFor="let l of listrep" >
+        <div class=" card-header d-flex align-items-start">
+          <img class="circular--portrait "  src="{{l.user.urlpicture}}"/>
+          <div class="d-flex flex-column">
+            <h4>{{l.user.nom}}</h4> <h6>{{l.dateReponseReclamationReclamation}}</h6>
+          </div>
+
+          <div class="ml-auto">
+            <button *ngIf="!rec.cloture && l.user.idUser===getUserId()" [disabled]="showFormTemplateUpdate && showFormTemplateId!=l.idReponseReclamation" (click)="updateForm(l)" class="btn btn-warning mt-2 " >Modifier</button>
+            <a *ngIf="!rec.cloture && l.user.idUser===getUserId()" (click)="supprimerRepRec(l.idReponseReclamation)" class="btn btn-danger ml-3 mt-2 "  >Supprimer</a>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="container align-items-center ">
+            <p class="card-text">{{l.reponse}}</p>
+            <img  *ngIf="l.imageReponseReclamation!=''"class="imageRec d-block" style="border: solid 1px "  src="{{l.imageReponseReclamation}}"/>
+          </div>
+
+         </div>
+        <app-form-reponsereclamation [rec]="rec" *ngIf="showFormTemplateUpdate && showFormTemplateId==l.idReponseReclamation"  (addEvent)="saveRepRec($event)" [updateRepRec]="inputRepReclamation"></app-form-reponsereclamation>
+
+      </div>
+    </div>
+
+  </div>
+</div>

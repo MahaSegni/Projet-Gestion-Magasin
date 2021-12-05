@@ -1,17 +1,27 @@
 
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-
-
-  <ul class="navbar-nav ml-auto">
+<nav class="navbar navbar-expand navbar-light bg-white topbar  mb-4 static-top shadow ">
+  <ul class="navbar-nav " >
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item" *ngIf="getUserType()!='MODERATEUR'">
-          <a class="nav-link active" [class.active]="check1" (click)="changeCheck1()" aria-current="page"
-             routerLink="">Les Produits</a>
+        <li class="nav-item dropdown"  [class.active]="check1" (click)="changeCheck1()" *ngIf="getUserType()!='MODERATEUR'" >
+
+          <a class="nav-link dropdown-toggle"  id="navbarDropdownp" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a>produit</a></a>
+          <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownp " >
+            <div *ngFor="let cat of listCatP">
+            <li><a class="dropdown-item"  [routerLink]="['/produit',cat.idCategorieProduit ]">
+              {{cat.libelle}} </a>
+            </li>
+            </div>
+          </ul>
         </li>
+
         <li class="nav-item" *ngIf="getUserType()==='USER'">
-          <a class="nav-link" [class.active]="check2" (click)="changeCheck2()" routerLink="" >Utiliser un code Promo</a>
+          <a class="nav-link" [class.active]="checkRec" (click)="changeCheckRec()" routerLink="/reclamation" >Espace Reclamation</a>
+        </li>
+
+        <li class="nav-item" *ngIf="getUserType()==='USER'">
+          <a class="nav-link" [class.active]="check2" (click)="changeCheck2()" routerLink="" >Utiliser Code Promo</a>
         </li>
         <li class="nav-item"  *ngIf="getUserType()==='NL'">
           <a class="nav-link" [class.active]="check3" (click)="changeCheck3()" routerLink="">Se connecter</a>
@@ -19,7 +29,7 @@
         <li class="nav-item" *ngIf="getUserType()==='NL'">
           <a class="nav-link" [class.active]="check4" (click)="changeCheck4()" routerLink="" >S'inscrire</a>
         </li>
-        <li class="nav-item dropdown" *ngIf="getUserType()==='USER'">
+        <li class="nav-item dropdown "  *ngIf="getUserType()==='USER'" >
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

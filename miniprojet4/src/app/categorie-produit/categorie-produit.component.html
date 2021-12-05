@@ -1,0 +1,29 @@
+<div *ngIf="getUserType()==='MODERATEUR'" >
+
+  <button class="btn btn-success my-3 w-25" (click)="showForm()" >Ajouter</button>
+  <app-form-categorieproduit *ngIf="showFormTemplate" (addEvent)="saveCatProduct($event)" [updateCatProduct]="inputCatProduct"></app-form-categorieproduit>
+  <table class="table" *ngIf="!showFormTemplate">
+    <thead>
+    <tr>
+      <th scope="col" class="text-center  w-25">id</th>
+      <th scope="col" class="text-center w-25">libelle</th>
+      <th scope="col" class="text-center w-25">Icone</th>
+      <th scope="col" class="" >actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cat of catsproduit">
+      <th scope="row">{{cat.idCategorieProduit}}</th>
+      <td>{{cat.libelle}}</td>
+      <td><img *ngIf="cat.categorieProduitIcone" class="img-fluid " style="height: 50px ;width:50px" src="{{cat.categorieProduitIcone}}" alt=""></td>
+
+      <td class="align-content-center">
+        <span class="btn btn-warning " type="submit"  (click)="updateForm(cat)">Modifier</span>
+        <span class="btn btn-danger ml-3 " type="submit" (click)="supprimerCatProd(cat.idCategorieProduit )">Supprimer</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+

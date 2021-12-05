@@ -1,0 +1,42 @@
+<div *ngIf="updateCatProduct==null">
+  <h1 class="text-center">Ajouter Categorie Produit</h1>
+</div>
+<div *ngIf="updateCatProduct!=null">
+  <h1 class="text-center">Modifier Categorie Produit</h1>
+</div>
+<form class="w-50 mx-auto" [formGroup]="FormCat" (ngSubmit)="saveCatP(FormCat)">
+  <div class="form-group" hidden>
+    <input type="text" class="form-control" formControlName="idCat" >
+  </div>
+
+  <div>
+    <div class="form-group">
+      <label>Libelle</label>
+      <input type="text" class="form-control" formControlName="libelle"  >
+    </div>
+    <br>
+    <div class="alert alert-danger" *ngIf="FormCat.controls['libelle'].invalid && FormCat.controls['libelle'].touched">*Libelle Obligatoire </div>
+  </div>
+
+
+  <div class="form-group">
+    <label >Choisir Icone</label>
+    <input type="file"
+           class="form-control" formControlName="icone"
+           accept="images/"
+           (change)="uploadFiles($event)">
+    <img [src]="imgURL" height="200" *ngIf="imgURL">
+  </div>
+    <br>
+
+
+  <button class="btn btn-outline-success" type="submit"  [disabled]="FormCat.invalid" >Valider</button>
+
+  &nbsp;
+  <button class="btn btn-outline-primary" type="reset" >Reset</button>
+</form>
+
+
+
+
+
