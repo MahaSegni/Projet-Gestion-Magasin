@@ -18,6 +18,8 @@ import {FormProduitComponent} from "./form-produit/form-produit.component";
 import { CommandeComponent } from './commande/commande.component';
 import { FormFactureComponent } from './form-facture/form-facture.component';
 import { FormDetailFactureComponent } from './form-detail-facture/form-detail-facture.component';
+import { PanierComponent } from './panier/panier.component';
+import {NotifierModule} from "angular-notifier";
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { FormDetailFactureComponent } from './form-detail-facture/form-detail-fa
     CommandeComponent,
     FormFactureComponent,
     FormDetailFactureComponent,
+    PanierComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,46 @@ import { FormDetailFactureComponent } from './form-detail-facture/form-detail-fa
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NotifierModule.withConfig({
+      position: {
+        horizontal: {
+          position: 'right',
+          distance: 12,
+        },
+        vertical: {
+          position: 'top',
+          distance: 100,
+          gap: 10,
+        },
+      },
+      theme: 'material',
+      behaviour: {
+        autoHide: 5000,
+        onClick: false,
+        onMouseover: 'pauseAutoHide',
+        showDismissButton: true,
+        stacking: 4,
+      },
+      animations: {
+        enabled: true,
+        show: {
+          preset: 'slide',
+          speed: 300,
+          easing: 'ease',
+        },
+        hide: {
+          preset: 'fade',
+          speed: 300,
+          easing: 'ease',
+          offset: 50,
+        },
+        shift: {
+          speed: 300,
+          easing: 'ease',
+        },
+        overlap: 150,
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

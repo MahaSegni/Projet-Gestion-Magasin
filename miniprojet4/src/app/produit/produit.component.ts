@@ -5,6 +5,8 @@ import {ProduitService} from "../services/produit.service";
 import {ActivatedRoute, NavigationStart} from "@angular/router";
 import {CategorieProduit} from "../Model/CategorieProduit";
 import {Produit} from "../Model/Produit";
+import {NotifierModule, NotifierService} from "angular-notifier";
+
 
 @Component({
   selector: 'app-produit',
@@ -17,8 +19,14 @@ export class ProduitComponent implements OnInit {
   listProduitFront:any
   showFormTemplate:boolean
   inputProduct: Produit;
+  notifcounter=0;
+  private readonly notifier: NotifierService;
 
-  constructor(private route: ActivatedRoute,private service:ProduitService,private session:SessionService) {
+
+  constructor(private route: ActivatedRoute,private service:ProduitService,private session:SessionService,
+              notifierService: NotifierService) {
+    this.notifier = notifierService;
+
   }
 
   ngOnInit(): void {
@@ -61,16 +69,16 @@ export class ProduitComponent implements OnInit {
   }
   ajouterPanier(p:Produit){
     this.session.addToPanier(p,1);
-    console.log(this.session.getPanier())
+    this.notifier.notify('info', 'vous pouvez maintenant visiter votre panier \n');
+    this.notifcounter++;
+    if(this.notifcounter==3){
+      this.notifier.hideOldest();
+    }
   }
   ProductInsidePanier(p:Produit):boolean{
     return this.session.getPanier().findIndex((e)=>e.produit.idProduit==p.idProduit)!=-1;
   }
-  PanierisEmpty():boolean{
-    return this.session.getPanier().length==0;
-  }
-  viderPanier(){
-    return this.session.setPanier([]);
-  }
+
+
 
 }

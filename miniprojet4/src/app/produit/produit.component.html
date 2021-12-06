@@ -80,13 +80,7 @@
 
     </div>
   </div>
-  <div class="row my-3"  *ngIf="!PanierisEmpty() && getUserType()==='USER'">
-    <div class="col-6">
-    <a class="btn btn-success form-control" routerLink="/commande" >Passer Une Commande </a>
-    </div>
-    <div class="col-6">
-      <button class="btn btn-danger form-control" (click)="viderPanier()">Vider mon panier </button>
-    </div>
-    </div>
+  <notifier-container></notifier-container>
+
 </div>
 
