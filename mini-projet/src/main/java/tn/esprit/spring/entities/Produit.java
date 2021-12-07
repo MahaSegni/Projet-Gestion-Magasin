@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -46,7 +47,10 @@ public class Produit implements Serializable{
 	private String imageProduit;
 	private long quantiteEnStock;
 	private double pourcentageRemise;
-	
+	@Transient
+	private NoteProduit note;
+	@Transient
+	private float moyenneNote;
 	
 	@ManyToOne()
 	CategorieProduit categorieProduit;
@@ -58,6 +62,10 @@ public class Produit implements Serializable{
 	@OneToMany(mappedBy = "produit", cascade = CascadeType.REMOVE)
 	List<LikeDislike> likedislike = new ArrayList<>();
     
+    @OneToMany(mappedBy="produit",cascade = CascadeType.REMOVE)
+	@JsonIgnore
+    List<NoteProduit> notesProduit = new ArrayList<>();
+   
     @ManyToMany()
     @JoinTable(name = "FournisseurProduit")
     List<Fournisseur> fournisseurs = new ArrayList<>();

@@ -2,6 +2,7 @@ import {LikeDislike} from "./LikeDislike";
 import {detailFacture} from "./detailFacture";
 import {Fournisseur} from "./Fournisseur";
 import {CategorieProduit} from "./CategorieProduit";
+import {NoteProduit} from "./NoteProduit";
 
 export class Produit {
   idProduit: number;
@@ -17,7 +18,8 @@ export class Produit {
   fournisseurs: Fournisseur[];
   detailF: detailFacture[];
   likedislike: LikeDislike[];
-
+  listNotes:NoteProduit[];
+ note:NoteProduit;
 
   constructor(idProduit: number, code: string, libelle: string, dateCreation: Date, dateDerniereModification: Date, prixUnitaire: number,
                categorieProduit: CategorieProduit, imageProduit: string, quantiteEnStock: number, pourcentageRemise: number) {

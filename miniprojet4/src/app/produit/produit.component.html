@@ -42,18 +42,17 @@
   </table>
 </div>
 
-
-
-
-
 <div class="container mydiv " *ngIf="getUserType()!='MODERATEUR'">
-
   <div class="row" >
     <div class="col-md-4" *ngFor="let p of listProduitFront ">
       <!-- bbb_deals -->
       <div class="bbb_deals">
         <div class=" ribbon1 text-uppercase"><span> ref: {{p.code}}</span></div>
         <div class="bbb_deals_title">{{p.libelle}}</div>
+        <div class="mb-1  " >
+          <div class="textNote d-inline-block " style="font-size: 1rem; color:black">Avis</div>
+          <ngb-rating [max]="5"   [(rate)]="p.moyenneNote "   style="color: orange ; font-size: xx-large"  [readonly]="true" class="d-inline-block"></ngb-rating>
+        </div>
         <div class="bbb_deals_slider_container">
           <div class=" bbb_deals_item">
             <div class="text-center"><img class="img-fluid w-100" style="height: 300px" src="{{p.imageProduit}}" alt=""></div>
@@ -69,8 +68,10 @@
               <div class="available">
                 <div class="available_line d-flex flex-row justify-content-start">
                   <div class="available_title">Quantité: <span>{{p.quantiteEnStock}}</span></div>
-                  <div class="sold_stars ml-auto"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
-                </div>
+
+                  <div class="sold_stars ml-auto"><ngb-rating [max]="5" [id]="p.idProduit"  [(rate)]="p.note.noteproduit" (rateChange)="updateRate(p)"  style="color: orange ; font-size: xx-large" [readonly]="false"></ngb-rating> </div>
+                 </div>
+
 
               </div>
             </div>

@@ -3,9 +3,11 @@
   <div  id="content-wrapper" class="d-flex flex-column">
     <div id="content">
       <app-navbar *ngIf="getUserType()!='MODERATEUR'" ></app-navbar>
-      <div class="container-fluid" style="height: 100vh;">
+      <div class="container-fluid" style="height: 100vh; ">
+
      <router-outlet></router-outlet>
       </div>
+
 
     </div>
     <app-footer></app-footer>
@@ -16,3 +18,4 @@
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="assets/js/sb-admin-2.min.js"></script>
+
