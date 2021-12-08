@@ -47,6 +47,7 @@ public class CategorieProduitRestController {
 		@PostMapping("/add-productCategory")
 		@ResponseBody
 		public CategorieProduit addProductCategory(@RequestBody CategorieProduit c) {
+			System.out.println("ok"+ c.toString());
 			return categorieProduitService.addCategorieProduit(c);
 		}
 		// http://localhost:8081/SpringMVC/productCategory/remove-productCategory/{productCategory-id}

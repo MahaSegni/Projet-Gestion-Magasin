@@ -55,6 +55,10 @@ public class NoteProduitServiceImpl implements NoteProduitService {
 
 	@Override
 	public float getNotesProductByIdProduct(long idproduit) {
+		try {
 	    return noteProduitRep.getNotesProductByIdProduct(idproduit);
+		}catch (Exception e) {
+			return 0 ;
+		}
 	}
 }

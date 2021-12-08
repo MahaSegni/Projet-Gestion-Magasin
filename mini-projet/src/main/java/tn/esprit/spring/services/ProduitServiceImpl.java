@@ -54,8 +54,9 @@ public class ProduitServiceImpl implements ProduitService {
 		}
 
 
-	private final Path root = Paths.get("C:/Users/votre/OneDrive/Bureau/4twin/miniprojet4/miniProjet4twin/miniprojet4/src/assets/img/ProductPic");
-	  @Override
+	//private final Path root = Paths.get("C:/Users/votre/OneDrive/Bureau/4twin/miniprojet4/miniProjet4twin/miniprojet4/src/assets/img/ProductPic");
+	private final Path root = Paths.get("F:/4TWIN4/CSA angular/GestionProduit git/miniProjet4twin/miniprojet4/src/assets/img/ProductPic");  
+	@Override
 	  public void saveImage(MultipartFile  file) {
 	    try {
 	       Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
