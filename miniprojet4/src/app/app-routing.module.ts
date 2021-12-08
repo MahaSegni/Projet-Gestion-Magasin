@@ -6,6 +6,7 @@ import {ReclamationComponent} from "./reclamation/reclamation.component";
 import {ReponseReclamation} from "./Model/ReponseReclamation";
 import {FormCategorieproduitComponent} from "./form-categorieproduit/form-categorieproduit.component";
 import {ReponseReclamationComponent} from "./reponse-reclamation/reponse-reclamation.component";
+import {StatReclamationComponent} from "./stat-reclamation/stat-reclamation.component";
 
 const routes: Routes = [
   {path:'categorieProduit' , component:CategorieProduitComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'reclamation' , component:ReclamationComponent},
   {path:'espaceReclamation/:Recid',component:ReponseReclamationComponent},
   {path:'ajouterCategorie',component:FormCategorieproduitComponent},
+  {path:'statReclamation',component:StatReclamationComponent},
 
 ];
 

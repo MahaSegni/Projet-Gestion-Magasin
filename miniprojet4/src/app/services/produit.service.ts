@@ -10,8 +10,8 @@ export class ProduitService {
 
   constructor(private http:HttpClient) { }
 
-  public afficherProduitByCat(idCat: string | null)
-  {return this.http.get("http://localhost:8081/SpringMVC/product/retrieve-all-productsByCat/"+idCat)}
+  public afficherProduitByCat(idCat: string | null,iduser:string| null)
+  {return this.http.get("http://localhost:8081/SpringMVC/product/retrieve-all-productsByCat/"+idCat+"/"+iduser)}
   public afficherProduit ()
   {return this.http.get("http://localhost:8081/SpringMVC/product/retrieve-all-products");}
 
@@ -26,5 +26,7 @@ export class ProduitService {
 
   public getProduit (id :number)
   {return this.http.get("http://localhost:8081/SpringMVC/product/retrieve-product/"+id);}
+  public getProduitnotes (id :number)
+  {return this.http.get("http://localhost:8081/SpringMVC/product/retrieve-productnote/"+id);}
 
 }

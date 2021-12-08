@@ -14,9 +14,15 @@ import { ReponseReclamationComponent } from './reponse-reclamation/reponse-recla
 
 import { FormCategorieproduitComponent } from './form-categorieproduit/form-categorieproduit.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {FormProduitComponent} from "./form-produit/form-produit.component";
+
 import { FormReclamationComponent } from './form-reclamation/form-reclamation.component';
 import { FormReponsereclamationComponent } from './form-reponsereclamation/form-reponsereclamation.component';
+import {GoogleChartsModule} from "angular-google-charts";
+import { StatReclamationComponent } from './stat-reclamation/stat-reclamation.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import {NgxStarRatingModule} from "ngx-star-rating";
+import {FormProduitComponent} from "./form-produit/form-produit.component";
 
 @NgModule({
   declarations: [
@@ -32,6 +38,7 @@ import { FormReponsereclamationComponent } from './form-reponsereclamation/form-
     FormProduitComponent,
     FormReclamationComponent,
     FormReponsereclamationComponent,
+    StatReclamationComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +46,9 @@ import { FormReponsereclamationComponent } from './form-reponsereclamation/form-
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    GoogleChartsModule,
+    NgbModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

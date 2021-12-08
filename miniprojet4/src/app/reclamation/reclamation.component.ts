@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit  , ViewChild} from '@angular/core';
 import {ReclamationService} from "../services/reclamation.service";
 import {SessionService} from "../services/session.service";
 import {CategorieProduit} from "../Model/CategorieProduit";
 import {Reclamation} from "../Model/Reclamation";
+
+
 
 @Component({
   selector: 'app-reclamation',
@@ -16,6 +18,8 @@ export class ReclamationComponent implements OnInit {
   showFormTemplateUpdate:Boolean;
   showFormTemplateId:number;
   inputReclamation: Reclamation;
+
+
   constructor(private service:ReclamationService,private session:SessionService) { }
 
   ngOnInit(): void {

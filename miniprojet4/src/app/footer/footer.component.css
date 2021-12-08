@@ -1,8 +1,11 @@
 
 footer {
 
-  left: 0;
+  position: absolute;
+
+margin-top: 100px !important;
   bottom: 0;
+
 
   width: 100%;
   text-align: center;

@@ -1,6 +1,7 @@
 
 package tn.esprit.spring.controllers;
 
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import tn.esprit.spring.entities.NoteProduit;
 import tn.esprit.spring.entities.Produit;
-
+import tn.esprit.spring.services.NoteProduitService;
 import tn.esprit.spring.services.ProduitService;
 
 
@@ -33,6 +35,9 @@ public class ProduitRestController {
 
 	@Autowired
 	ProduitService produitService;
+	@Autowired
+	NoteProduitService noteProduitService ;
+	
 	
 
 	// http://localhost:8081/SpringMVC/product/retrieve-all-products
@@ -40,7 +45,14 @@ public class ProduitRestController {
 	@ResponseBody
 	public List<Produit> getProducts() {
 		return produitService.retrieveAllProduits();
+
 	}
+	// http://localhost:8081/SpringMVC/product/retrieve-productnote/2
+	/*@GetMapping("/retrieve-productnote/{product-id}")
+	@ResponseBody
+	public List<NoteProduit> retrieveProductnote(@PathVariable("product-id") Long productid) {
+		return produitService.retrieveProduit(productid).getNotesProduit();
+	}*/
 	// http://localhost:8081/SpringMVC/product/retrieve-product/2
 	@GetMapping("/retrieve-product/{product-id}")
 	@ResponseBody
@@ -67,18 +79,31 @@ public class ProduitRestController {
 	public Produit modifyProduct(@RequestBody Produit produit) {
 		return produitService.updateProduit(produit);
 	}
-	//http://localhost:8081/SpringMVC/product/retrieve-all-productsByCat/{idcat}
-	@GetMapping("/retrieve-all-productsByCat/{idcat}")
+	//http://localhost:8081/SpringMVC/product/retrieve-all-productsByCat/{idcat}/{idUser}
+	@GetMapping("/retrieve-all-productsByCat/{idcat}/{idUser}")
 	@ResponseBody
-	public List<Produit> getProductsByCat(@PathVariable("idcat")long idcat) {
+	public List<Produit> getProductsByCat(@PathVariable("idcat")long idcat,@PathVariable("idUser")long idUser) {
+		boolean test=false;
 		List<Produit> l =  produitService.retrieveAllProduits();
 		List<Produit> lc =new ArrayList<Produit>();
 		
 		for (Produit p : l) {
-			if (p.getCategorieProduit().getIdCategorieProduit()==idcat) {
-				lc.add(p);
+		 
+			if (p.getCategorieProduit().getIdCategorieProduit()==idcat) 
+			{ 
+				p.setNote(noteProduitService.getNotesProductByUser(idUser,p.getIdProduit()));
+				p.setMoyenneNote(Math.round(noteProduitService.getNotesProductByIdProduct(p.getIdProduit())));
+				lc.add(p);	
 			}
-		}
+			}
+	
+		
+		for (Produit p : lc) {
+		 
+				p.getNote().setProduit(null);
+			}
+	
+
 		return lc;
 	}
 	

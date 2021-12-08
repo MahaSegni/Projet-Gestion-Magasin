@@ -1,3 +1,6 @@
+
+
+
 <div *ngIf="getUserType()==='MODERATEUR'" style="margin-top: 5%" >
   <h1 class="text-center mb-5">Espace Reclamation</h1>
   <div class="card mt-3" *ngFor="let l of listReclamation ">
@@ -22,9 +25,14 @@
   </div>
 
 </div>
+
 <div class="container" *ngIf="getUserType()!='MODERATEUR' " style="margin-top: 5%" >
+
+
   <h1 class="text-center mb-5">Espace Reclamation</h1>
-  <a class="btn btn-success my-3 w-25" (click)="showFormAdd()">Ajouter Reclamation</a>
+  <a class="btn btn-success my-3 w-25 mr-5" (click)="showFormAdd()">Ajouter Reclamation</a>
+
+ <a class="btn btn-outline-primary my-3 w-25 float-right " routerLink="/statReclamation" >Consulter Statistique</a>
   <app-form-reclamation *ngIf="showFormTemplateAdd" (addEvent)="saveRec($event)" ></app-form-reclamation>
   <div class="card mt-3" *ngFor="let l of listReclamationFront ">
     <div class=" card-header d-flex align-items-start">
