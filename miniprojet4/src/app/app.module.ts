@@ -18,10 +18,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormReclamationComponent } from './form-reclamation/form-reclamation.component';
 import { FormReponsereclamationComponent } from './form-reponsereclamation/form-reponsereclamation.component';
 import {GoogleChartsModule} from "angular-google-charts";
+
 import { StatReclamationComponent } from './stat-reclamation/stat-reclamation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import {NgxStarRatingModule} from "ngx-star-rating";
+
 import {FormProduitComponent} from "./form-produit/form-produit.component";
 
 @NgModule({

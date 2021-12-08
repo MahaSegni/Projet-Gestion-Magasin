@@ -7,7 +7,7 @@ import { User } from '../Model/user';
 export class SessionService {
   user : User;
   constructor() {
-    this.user=new User(1,"test","test","Fidele");
+    this.user=new User(3,"test","test","Fidele");
    }
    getUser() : User{
 

@@ -14,11 +14,12 @@ export class NavbarComponent implements OnInit {
   check2:boolean;
   check3:boolean;
   check4:boolean;
+
   checkRec:boolean;
 
   listCatP:any;
 
-  constructor(private session:SessionService,private  service:CategorieProduitService) {
+  constructor(private session:SessionService, private  service:CategorieProduitService) {
    }
 
   ngOnInit(): void {
