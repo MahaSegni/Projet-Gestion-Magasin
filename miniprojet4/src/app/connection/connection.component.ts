@@ -16,6 +16,9 @@ export class ConnectionComponent implements OnInit {
   constructor(private fb: FormBuilder, private us: UserService, private route: Router, private session: SessionService) { }
 
   ngOnInit(): void {
+    if (this.session.getUser() != null){
+      this.route.navigate(['/profile'])
+    }
     this.loginError = false;
     this.connectionForm = this.fb.group(
       {

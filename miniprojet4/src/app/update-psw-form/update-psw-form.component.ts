@@ -23,7 +23,9 @@ export class UpdatePswFormComponent implements OnInit {
     this.userPswForm = this.fb.group(
       {
         'pswactuel': ['',Validators.required],
-        'psw': ['',Validators.required],
+        'psw': ['', [Validators.minLength(5),
+          Validators.required,
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
         'confirmPsw': ['',Validators.required]
       }
     )

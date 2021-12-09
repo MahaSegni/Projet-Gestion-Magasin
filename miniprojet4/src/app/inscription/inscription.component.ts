@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../Model/user';
+import { SessionService } from '../services/session.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -17,9 +18,12 @@ export class InscriptionComponent implements OnInit {
   message: any;
   user: User = new User();
   inscriptionForm: FormGroup
-  constructor(private fb: FormBuilder, private us: UserService, private route: Router) { }
+  constructor(private fb: FormBuilder, private us: UserService, private route: Router, private session : SessionService) { }
 
   ngOnInit(): void {
+    if (this.session.getUser() != null){
+      this.route.navigate(['/profile'])
+    }
     this.error2 = false;
     this.error = false
     this.registerForm = true
@@ -29,7 +33,9 @@ export class InscriptionComponent implements OnInit {
         'prenom': ['', [Validators.required]],
         'datenaissance': ['', [Validators.required]],
         'email': ['', [Validators.required, Validators.email]],
-        'psw': ['', Validators.required],
+        'psw': ['', [Validators.minLength(5),
+          Validators.required,
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
         'confirmPsw': ['', Validators.required],
         'code': ['']
       }

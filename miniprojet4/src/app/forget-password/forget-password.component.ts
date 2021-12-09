@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../Model/user';
+import { SessionService } from '../services/session.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -18,10 +19,13 @@ export class ForgetPasswordComponent implements OnInit {
   displayEmail : boolean;
   displayCode : boolean;
   displayUpdate : boolean;
-  constructor(private fb : FormBuilder, private us:UserService, private route : Router) { }
+  constructor(private fb : FormBuilder, private us:UserService, private route : Router, private session : SessionService) { }
   forgetPswForm : FormGroup
 
   ngOnInit(): void {
+    if (this.session.getUser() != null){
+      this.route.navigate(['/profile'])
+    }
     this.pswUpdated = false;
     this.errorEmail = false;
     this.errorCode = false;

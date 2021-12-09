@@ -16,6 +16,9 @@ export class ProfileComponent implements OnInit {
   constructor(private route : Router,private session:SessionService) { }
   
   ngOnInit(): void {
+    if (this.session.getUser() == null){
+      this.route.navigate(['/connexion'])
+    }
     this.afficher = false
     this.afficher2 = false
     this.afficher3 = false

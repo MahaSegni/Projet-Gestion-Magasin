@@ -52,6 +52,11 @@
             <label>Confirm Password</label>
             <input type="password" class="form-control form-control-user" formControlName="confirmPsw">
         </div>
+        <div class="alert alert-danger mt-2" *ngIf="inscriptionForm.controls['psw'].invalid && inscriptionForm.controls['psw'].touched">
+            <div *ngIf="inscriptionForm.controls['psw'].hasError('required')"> Mot de passe est obligatoire</div>
+            <div *ngIf="inscriptionForm.controls['psw'].hasError('minlength')"> Minimum 5 caracteres</div>
+            <div *ngIf="inscriptionForm.controls['psw'].hasError('pattern')">  doit contenir au moins une lettre majuscule, une lettre minuscule et un chiffre</div>
+        </div>
 
         <div class="alert alert-danger mt-2"
             *ngIf="inscriptionForm.controls['psw'].value != inscriptionForm.controls['confirmPsw'].value && inscriptionForm.controls['confirmPsw'].dirty">
