@@ -5,6 +5,8 @@ import {CodePromo} from "../../Model/CodePromo";
 import {Router} from "@angular/router";
 import {NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels} from "@techiediaries/ngx-qrcode";
 import {SessionService} from "../../services/session.service";
+import {Produit} from "../../Model/Produit";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-code-promo',
@@ -14,6 +16,7 @@ import {SessionService} from "../../services/session.service";
 
 export class CodePromoComponent implements OnInit {
 codes: any;
+  f: FormGroup;
   inputCategory: string;
   title = 'angular-text-search-highlight';
   searchText = '';
@@ -27,14 +30,30 @@ codes: any;
   reverse:boolean = false;
   buttonValue: string;
   inputcode: CodePromo;
+  scope:any;
+  i:number=1;
   constructor(private service:CodePrmoService,private router: Router,private session:SessionService) { }
 
   ngOnInit(): void {
+    this.f= new FormGroup({
+      'cle': new FormControl('', [Validators.required,Validators.minLength(4)]),
+      'dateFin': new FormControl('', [Validators.required]),
+      'valeur': new FormControl('', [Validators.required,Validators.min(5)]),
+    })
     this.showFormTemplate = false;
     this.buttonValue="add new code promo";
     let resp=this.service.getCode();
-resp.subscribe((res)=>this.codes=res);
 
+resp.subscribe((res)=>this.codes=res);
+    this.scope = new Date();
+    for(let i=0;i<this.codes;i++) {
+      if (this.codes.indexOf(this.i).dateFin < this.scope.getDate()) {
+        this.service.deleteCode(this.codes.indexOf(this.i));
+        this.i++;
+      } else {
+        this.i++;
+      }
+    }
   }
   save(code: CodePromo): void{
     let i = this.codes.indexOf(code);
@@ -49,8 +68,14 @@ resp.subscribe((res)=>this.codes=res);
     let resp=this.service.getCode();
     resp.subscribe((res)=>this.codes=res);
   }
-  updateCode(idCodePomo:number){
+  /*updateCode(idCodePomo:number){
     this.router.navigate(['UpdateCodePromo', idCodePomo]);
+  }*/
+  updateCode(code: CodePromo)
+  {if (this.showFormTemplate===true)
+    this.showFormTemplate=false;
+  else this.showFormTemplate=true;
+    this.inputcode=code;
   }
   genererQrCode(code: CodePromo){
    this.elementType = NgxQrcodeElementTypes.URL;
@@ -58,8 +83,17 @@ resp.subscribe((res)=>this.codes=res);
     this.value = "votre code de promotion : "+ code.cle +  " réduction de : "+code.valeur+ "%";
     this.blueColor = '#040c44'
   }
-
-  search(){
+  /*
+  searchAll(){
+    if(this.searchTerm!=""){
+      this.codes= this.codes.filter((r: { cle: string; })=> {
+        return r.cle.toLowerCase().match(this.searchTerm);
+      });
+    }else if (this.searchTerm == ""){
+      this.ngOnInit();
+    }
+  }*/
+ search(){
    if(this.searchTerm!=""){
      this.codes= this.codes.filter((r: { cle: string; })=> {
        return r.cle.toLowerCase().match(this.searchTerm);
@@ -77,7 +111,7 @@ this.reverse = !this.reverse;
     if (!this.showFormTemplate){
       this.showFormTemplate = true
       this.buttonValue= "go Back to the List";
-      this.inputcode = new CodePromo();
+     // this.inputcode = new CodePromo();
     }
     else {
       this.buttonValue="add new code promo";
@@ -88,5 +122,11 @@ this.reverse = !this.reverse;
   getUserType():string{
 
     return this.session.getSessionType();
+  }
+  saveCodePromo(code: CodePromo){
+    let resp= this.service.addCode(code).subscribe(()=>{
+      this.service.getCode().subscribe((data)=>{this.codes=data;})
+    });
+    this.showFormTemplate=false;
   }
 }

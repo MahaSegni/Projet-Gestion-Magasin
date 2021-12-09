@@ -25,7 +25,9 @@ export class CodePrmoService {
   addCode(code: Object): Observable<Object> {
     return this.http.post(`${this.CodePromoUrl}`, code);
   }
-
+  public getCodebyDate(dateFin: Date): Observable<Object> {
+    return this.http.get<CodePromo>(this.CodePromoUrl+dateFin);
+  }
   deleteCode (code: CodePromo): Observable<CodePromo> {
     const url=this.CodePromoUrl+ code.idCodePomo;
     return this.http.delete<CodePromo>(url);

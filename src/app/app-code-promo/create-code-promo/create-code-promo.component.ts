@@ -10,7 +10,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./create-code-promo.component.css']
 })
 export class CreateCodePromoComponent implements OnInit {
-  codea: CodePromo = new CodePromo() ;
+  codea: CodePromo;
   submitted = false;
   myForm: FormGroup;
   @Input() code:CodePromo;
@@ -40,7 +40,7 @@ export class CreateCodePromoComponent implements OnInit {
     this.code.valeur= f.value.valeur;
     this.service.addCode(this.code).subscribe(data => {
         console.log(data)
-        this.code = new CodePromo();
+        //this.code = new CodePromo("","","");
         this.gotoList();
       },
       error => console.log(error));

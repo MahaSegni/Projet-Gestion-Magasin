@@ -23,6 +23,7 @@ import {FormProduitComponent} from "./form-produit/form-produit.component";
 import {FormReclamationComponent} from "./form-reclamation/form-reclamation.component";
 import {FormReponsereclamationComponent} from "./form-reponsereclamation/form-reponsereclamation.component";
 import {ProduitComponent} from "./produit/produit.component";
+import { FormCodePromoComponent } from './app-code-promo/form-code-promo/form-code-promo.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {ProduitComponent} from "./produit/produit.component";
     FormProduitComponent,
     FormReclamationComponent,
     FormReponsereclamationComponent,
+    FormCodePromoComponent,
   ],
     imports: [
         BrowserModule,

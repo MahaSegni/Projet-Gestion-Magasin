@@ -10,6 +10,6 @@ export class WishlistService {
   constructor(private http:HttpClient) { }
 
   addCode(idProduit: any): Observable<Object> {
-    return this.http.post(this.WishlistUrl+idProduit,idProduit);
+    return this.http.post(this.WishlistUrl+'/add',idProduit);
   }
 }

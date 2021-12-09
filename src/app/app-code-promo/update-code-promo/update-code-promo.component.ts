@@ -24,7 +24,7 @@ export class UpdateCodePromoComponent implements OnInit {
       valeur: new FormControl(),
     });
 
-    this.code = new CodePromo();
+    // *******this.code = new CodePromo();
     this.id = this.route.snapshot.params['idCodePromo'];
    /* this.service.getCodebyid(this.id).subscribe(data => {
       console.log(data);
@@ -41,7 +41,7 @@ export class UpdateCodePromoComponent implements OnInit {
     this.code.valeur= f.value.valeur;
     this.service.updateCode(this.code).subscribe(data => {
         console.log(data)
-        this.code = new CodePromo();
+       //***** this.code = new CodePromo();
         this.gotoList();
       },
       error => console.log(error));

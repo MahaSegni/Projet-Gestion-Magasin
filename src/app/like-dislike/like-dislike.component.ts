@@ -20,12 +20,8 @@ export class LikeDislikeComponent implements OnInit {
   constructor(private ProduitService: ProduitService,private service:WishlistService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
-
     this.service.addCode(this.idProduit).subscribe(data => {
         console.log(data)
-
-
       },
       error => console.log(error));
   }
