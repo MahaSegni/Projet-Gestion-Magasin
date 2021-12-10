@@ -7,6 +7,7 @@ import java.util.Date;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -44,7 +45,7 @@ public class testClass {
 	public void addProduit() throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = dateFormat.parse("12/06/2018");
-		String psw = userService.doHashing("1234");
+		String psw = BCrypt.hashpw("1234", BCrypt.gensalt());
 		User u = new User(9L,"testnom","testprenom",date,"med@mod",psw,"user.png",null,Badge.Moderateur,false,null,null,null,null);
 		userRepository.save(u);
 	}

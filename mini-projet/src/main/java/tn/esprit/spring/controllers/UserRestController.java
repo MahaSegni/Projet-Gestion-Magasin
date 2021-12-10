@@ -2,6 +2,7 @@ package tn.esprit.spring.controllers;
 
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,13 +39,14 @@ public class UserRestController {
 	EmailSender emailSender;
 	
 	
+	
 	@PostMapping("/forgetPassword")
 	@ResponseBody
 	public boolean updatePswd(@RequestBody User u) {
 		List<User> list = userService.retrieveAllUsers();
 		for (User u2 : list) {
 			if (u2.getEmail().equals(u.getEmail())) {
-				String pass = userService.doHashing(u.getPassword());
+				String pass = BCrypt.hashpw(u.getPassword(), BCrypt.gensalt());
 				u2.setPassword(pass);
 				userService.updateUser(u2);
 				return true	;
@@ -73,11 +75,12 @@ public class UserRestController {
 	@ResponseBody
 	public User connectionUser(@PathVariable String email,@PathVariable String psw) {
 		List<User> list = userService.retrieveAllUsers();
-		String pass = userService.doHashing(psw);
+	
+		
 		User u = new User();
 		for (User u2 : list) {
 
-			if (  (u2.getEmail().equals(email)) && (u2.getPassword().equals(pass)) ) {
+			if (  (u2.getEmail().equals(email)) && (BCrypt.checkpw(psw, u2.getPassword()))) {
 				String generatedT = jwtUtils.generateJwt(u2);
 				u = u2;
 				u.setToken(generatedT);
@@ -117,7 +120,7 @@ public class UserRestController {
 	@PostMapping("/add-user")
 	@ResponseBody
 	public User addUser(@RequestBody User u) {
-		String pass = userService.doHashing(u.getPassword());
+		String pass = BCrypt.hashpw(u.getPassword(), BCrypt.gensalt());
 		u.setPassword(pass);
 		u.setUrlpicture("user.png");
 		return userService.addUser(u);
@@ -128,7 +131,7 @@ public class UserRestController {
 	public User updateUserPassword(@RequestBody User u,@RequestHeader(value = "authorization", defaultValue = "") String auth) {
 		if (u.getToken().equals(auth)) {
 
-			String pass = userService.doHashing(u.getPassword());
+			String pass = BCrypt.hashpw(u.getPassword(), BCrypt.gensalt());
 			u.setPassword(pass);
 			return userService.updateUser(u);
 		}
@@ -143,33 +146,17 @@ public class UserRestController {
 		List<User> list = userService.retrieveAllUsers();
 		String pass = userService.doHashing(psw);
 		
+		
 		for (User u2 : list) {
 
-			if (  (u2.getIdUser() == id) && (u2.getPassword().equals(pass)) ) {
+			if (  (u2.getIdUser() == id) && (BCrypt.checkpw(psw, u2.getPassword()))) {
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	
-	
-	
-	
-	@PostMapping("/connection2")
-	@ResponseBody
-	public User connectionUser2(@RequestBody User u) {
-		List<User> list = userService.retrieveAllUsers();
-		String pass = userService.doHashing(u.getPassword());
-		User un = new User();
-		for (User u2 : list) {
 
-			if (  (u2.getEmail().equals(u.getEmail())) && (u2.getPassword().equals(pass)) ) {
-				un = u2;
-			}
-		}
-		return un;
-	}
 	
 	@GetMapping("/retrieve-user/{user-id}")
 	@ResponseBody
