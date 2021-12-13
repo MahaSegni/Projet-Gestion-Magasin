@@ -1,0 +1,42 @@
+<div class="card" *ngIf="ProductOfpanier.length>0">
+  <div class="row">
+    <div class="col-md-8 cart">
+      <div class="title">
+        <div class="row">
+          <div class="col">
+            <h4><b>Panier</b></h4>
+          </div>
+          <div class="col align-self-center text-right text-muted">{{ProductOfpanier.length.toString()}} éléments</div>
+        </div>
+      </div>
+      <div class="row border-top border-bottom" *ngFor="let p of ProductOfpanier">
+        <div class="row main align-items-center">
+          <div class="col-2"><img class="img-fluid" src="{{p.produit.imageProduit}}"></div>
+          <div class="col">
+            <div class="row text-muted">{{ p.produit.categorieProduit.libelle }}</div>
+            <div class="row">{{ p.produit.libelle }}</div>
+          </div>
+          <div class="col"> {{ p.produit.prixUnitaire }} DT</div>
+        </div>
+      </div>
+      <div class="back-to-shop"><a routerLink="/products/produit/1">&leftarrow;</a><span class="text-muted">Retour </span></div>
+    </div>
+    <div class="col-md-4 summary">
+      <div>
+        <h5><b>M<sup>4</sup>E  : Département des ventes</b></h5>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col" style="padding-left:0;"> {{ProductOfpanier.length.toString()}} éléments</div>
+      </div>
+      <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+        <div class="col">TOTAL PRICE</div>
+        <div class="col text-right"> {{ getPriceOfPanier() }} DT</div>
+      </div>
+      <a class="btn btn-primary my-2" routerLink="/factures/commande">Passer une Facture</a>
+      <button class="btn btn-danger my-3" (click)="viderPanier()">Vider mon Panier</button>
+
+    </div>
+  </div>
+</div>
+<app-panier-vide *ngIf="ProductOfpanier.length==0"></app-panier-vide>

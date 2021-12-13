@@ -1,0 +1,20 @@
+<div class="row">
+<div class="col-2">
+  <input type="text" class="form-control" [(ngModel)]="detailfacture.produit.idProduit" [disabled]="true">
+</div>
+<div class="col-2">
+  <input type="text" class="form-control" [(ngModel)]="detailfacture.produit.libelle"  [disabled]="true">
+</div>
+  <div class="col-2">
+<input type="text" class="form-control" [(ngModel)]="detailfacture.produit.prixUnitaire"  [disabled]="true">
+</div>
+  <div class="col-2">
+<input type="text" class="form-control" [(ngModel)]="detailfacture.produit.pourcentageRemise"  [disabled]="true">
+</div>
+  <div class="col">
+<input type="number" class="form-control" [(ngModel)]="detailfacture.qte" (change)="notifyParentChangeQuantite()" [min]="1">
+  </div>
+  <div class="col">
+    <a (click)="notifyParentDelete()"><i class="fas fa-trash"> </i></a>
+  </div>
+</div>

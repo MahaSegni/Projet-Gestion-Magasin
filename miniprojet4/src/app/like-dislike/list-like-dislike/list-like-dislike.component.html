@@ -1,0 +1,39 @@
+<div class="container mydiv " *ngIf="getUserType()!='MODERATEUR'">
+  <div class="row" >
+    <div class="col-md-4" *ngFor="let p of list ">
+      <!-- bbb_deals -->
+      <div class="bbb_deals">
+        <div class=" ribbon1 text-uppercase"><span> ref: {{p.produit.code}}</span></div>
+        <div class="bbb_deals_title">{{p.produit.libelle}}</div>
+        <div class="bbb_deals_slider_container">
+          <div class=" bbb_deals_item">
+            <div class="text-center"><img class="img-fluid w-100" style="height: 300px" src="{{p.produit.imageProduit}}" alt=""></div>
+            <div class="bbb_deals_content">
+              <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                <div class="bbb_deals_item_category"><a href="#">
+                  <img class="mr-2" style="width: 20px; height: 20px" src="{{p.produit.categorieProduit.categorieProduitIcone}}">{{p.produit.categorieProduit.libelle}}</a></div>
+              </div>
+              <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                <div class="bbb_deals_item_name">{{p.produit.libelle}}</div>
+                <div class="bbb_deals_item_price ml-auto">{{p.produit.prixUnitaire}}dt</div>
+              </div>
+              <div class="available">
+                <div class="available_line d-flex flex-row justify-content-start">
+                  <div class="available_title">Quantité: <span>{{p.produit.quantiteEnStock}}</span></div>
+
+                   </div>
+
+              </div>
+              </div>
+            </div>
+            <a routerLink="" class="btn btn-primary mt-3 w-100" (click)="deleteLike(p)"> <i class="fas fa-trash-alt"></i> supprimer</a>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+

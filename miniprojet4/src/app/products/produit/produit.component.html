@@ -1,0 +1,93 @@
+<div *ngIf="getUserType()==='MODERATEUR'">
+  <button class="btn btn-success my-3 w-25" (click)="showForm()">Ajouter</button>
+  <app-form-produit (addEvent)="saveProduct($event)" [updateProduct]="inputProduct" *ngIf="showFormTemplate"></app-form-produit>
+  <table class="table" *ngIf="!showFormTemplate">
+    <thead>
+    <tr>
+      <th scope="col" class="text-center ">id</th>
+      <th scope="col" class="text-center ">code</th>
+      <th scope="col" class="text-center ">libelle</th>
+      <th scope="col" class="text-center " >dateCreation</th>
+      <th scope="col" class="text-center ">dateDerniereModification</th>
+      <th scope="col" class="text-center ">prix</th>
+
+      <th scope="col" class="text-center ">image</th>
+      <th scope="col" class="text-center ">stock</th>
+      <th scope="col" class="text-center ">pourcentageRemise</th>
+      <th scope="col" class="text-center ">categorie</th>
+      <th scope="col" class="" >actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of listProduit">
+      <th scope="row">{{p.idProduit}}</th>
+      <td>{{p.code}}</td>
+      <td>{{p.libelle}}</td>
+      <td>{{p.dateCreation}}</td>
+      <td>{{p.dateDerniereModification}}</td>
+      <td>{{p.prixUnitaire}}</td>
+
+      <td><img class="img-fluid " style="height: 100px ;width:100px" src="{{p.imageProduit}}" alt=""></td>
+      <td>{{p.quantiteEnStock}}</td>
+      <td>{{p.pourcentageRemise}}</td>
+      <td>{{p.categorieProduit.libelle}}</td>
+
+
+      <td class="align-content-center">
+        <span class="btn btn-warning " type="submit"  (click)="updateForm(p)">Modifier</span>
+        <span class="btn btn-danger ml-3 " type="submit" (click)="supprimerProd(p.idProduit )">Supprimer</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container mydiv " *ngIf="getUserType()!='MODERATEUR'">
+  <div class="row" >
+    <div class="col-md-4" *ngFor="let p of listProduitFront ">
+      <!-- bbb_deals -->
+      <div class="bbb_deals">
+        <div class=" ribbon1 text-uppercase"><span> ref: {{p.code}}</span></div>
+        <div class="bbb_deals_title">{{p.libelle}}</div>
+        <div class="mb-1  " >
+          <div class="textNote d-inline-block " style="font-size: 1rem; color:black">Avis</div>
+          <ngb-rating [max]="5"   [(rate)]="p.moyenneNote "   style="color: orange ; font-size: xx-large"  [readonly]="true" class="d-inline-block"></ngb-rating>
+        </div>
+        <div class="bbb_deals_slider_container">
+          <div class=" bbb_deals_item">
+            <div class="text-center"><img class="img-fluid w-100" style="height: 300px" src="{{p.imageProduit}}" alt=""></div>
+            <div class="bbb_deals_content">
+              <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                <div class="bbb_deals_item_category"><a href="#">
+                  <img class="mr-2" style="width: 20px; height: 20px" src="{{p.categorieProduit.categorieProduitIcone}}">{{p.categorieProduit.libelle}}</a></div>
+              </div>
+              <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                <div class="bbb_deals_item_name">{{p.libelle}}</div>
+                <div class="bbb_deals_item_price ml-auto">{{p.prixUnitaire}}dt</div>
+              </div>
+              <div class="available">
+                <div class="available_line d-flex flex-row justify-content-start">
+                  <div class="available_title">Quantité: <span>{{p.quantiteEnStock}}</span></div>
+
+                  <div class="sold_stars ml-auto"><ngb-rating [max]="5" [id]="p.idProduit"  [(rate)]="p.note.noteproduit" (rateChange)="updateRate(p)"  style="color: orange ; font-size: xx-large" [readonly]="false"></ngb-rating> </div>
+                </div>
+
+
+              </div>
+            </div>
+            <button *ngIf="getUserType()==='USER' " class="btn btn-primary mt-3 w-100" [disabled]="ProductInsidePanier(p)" (click)="ajouterPanier(p)"> <i class="fas fa-shopping-cart"></i>Ajouter au panier</button>
+            <button (click)="wish(p)" class="btn btn-outline-danger mt-3 w-100" [disabled]="p.valeur ==true"> <i class="fas fa-heart"></i>Ajouter au favoris</button>
+
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+  <notifier-container></notifier-container>
+
+</div>
+

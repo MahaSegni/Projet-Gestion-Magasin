@@ -1,0 +1,46 @@
+<form [formGroup]="FormFacture" class="col-8 mx-auto card" (ngSubmit)="saveFacture()" >
+  <div class="card-body">
+    <div class="row">
+    <div class="form-group col-8">
+      <label>Date Facture : </label>
+    <input type="text" class="form-control" formControlName="dateFacture">
+  </div>
+  <div class="form-group col">
+    <label>E-Mail : </label>
+    <input type="text" class="form-control" formControlName="userFacture">
+  </div>
+  </div>
+    <div class="row">
+      <div class="col-2">
+        Id Produit
+      </div>
+      <div class="col-2">
+        Libelle
+      </div>
+      <div class="col-2">
+        Prix Unitaire
+      </div>
+      <div class="col-2">
+        Remise %
+      </div>
+      <div class="col">
+        Quantite
+      </div>
+    </div>
+      <div class="my-3" *ngFor="let detailFacutre of facture.detailFacture">
+        <app-form-detail-facture (DeleteEvent)="DeleteDetail($event)" (NotifyEvent)="changeMontat()" [detailfacture]="detailFacutre"></app-form-detail-facture>
+      </div>
+    <div class="row">
+      <div class="col-6">
+        Prix Total :
+      </div>
+
+      <div class="col">
+        <input type="text" class="form-control" formControlName="montantFacture">
+
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-outline-success my-3" type="submit" >Valider</button>
+</form>
+

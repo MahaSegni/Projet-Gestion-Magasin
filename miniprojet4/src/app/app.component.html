@@ -1,0 +1,16 @@
+<div id="wrapper">
+  <app-sidemenu *ngIf="getUserType()=='MODERATEUR'"></app-sidemenu>
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+      <app-navbar></app-navbar>
+      <div class="container-fluid" style="height: 83vh; margin-top: 7% ">
+        <!--Content Here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <router-outlet></router-outlet>
+      </div>
+      <!--      <app-footer></app-footer>
+ -->
+
+  </div>
+</div>
+</div>
+

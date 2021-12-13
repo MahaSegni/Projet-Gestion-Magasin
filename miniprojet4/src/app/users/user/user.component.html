@@ -1,0 +1,14 @@
+<div class="row align-items-center" style="border-bottom: 1px solid black;">
+    <div class="col-4">
+        <img src="assets/img/UserPictures/{{user.urlpicture}}" alt="John" class="w-75">
+    </div>
+    <div class="col-6">
+        <h4>Nom : {{user.nom}}</h4>
+        <h4>Prenom : {{user.prenom}}</h4>
+        <h4>Date de naissance : {{user.dateNaissance| date }}</h4>
+        <h4>Email : {{user.email}}</h4>
+    </div>
+    <div class="col-2">
+        <button class="btn btn-danger my-2 btn-user" [disabled]="user.badge === 'Moderateur'" (click)="notifyParent()">Supprimer</button>
+    </div>
+</div>

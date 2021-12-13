@@ -1,0 +1,152 @@
+<div *ngIf="getUserType()=='MODERATEUR'"class="row">
+  <div class="col">
+    <table class="table table-hover" *ngIf="displayall">
+      <thead>
+      <tr>
+        <th scope="col">id </th>
+        <th scope="col">date </th>
+        <th scope="col">Montant </th>
+        <th scope="col">Propriétaire</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let facture of factureList">
+        <th scope="row">{{ facture.idFacture }}</th>
+        <td>{{ facture.dateFacture| date }}</td>
+        <td>{{ facture.montantFacture }}</td>
+        <td>{{ facture.user.nom}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="ChangeDisplay(facture)">
+          Detail
+          </button>
+        </td>
+        <td>
+          <a class="fas fa-trash-alt" (click)="delete(facture.idFacture)"></a>
+
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="container" *ngIf="displayall==false&&getUserType()=='MODERATEUR'" id="MyFacture">
+  <div class="row gutters">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="card">
+        <div class="card-body p-0">
+          <div class="invoice-container">
+            <div class="invoice-header">
+              <!-- Row start -->
+              <div class="row gutters" [hidden]="pdfOn">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                  <a class="btn btn-outline-primary" (click)="displayall=true">
+                    <i class="icon-printer"></i> Retour
+                  </a>
+                  <div class="custom-actions-btns mb-5" *ngIf="modeCorriger==false">
+                    <button printSectionId="MyFacture" class="btn btn-primary"   [useExistingCss]="true"
+                            [printStyle]="{h1 : {'background-color': 'black'}, h2 : {'border': 'solid 1px'}}"
+                            ngxPrint>
+                      <i class="icon-download"></i> Imprimer
+                    </button>
+                    <button (click)="exportAsPDF('MyDIv');" class="btn btn-secondary">
+                      <i class="icon-printer"></i> Telecharger
+                    </button>
+                    <a  class="btn btn-warning" (click)="modeCorriger=true">
+                      Corriger
+                    </a>
+
+                  </div>
+
+                  <div class="custom-actions-btns mb-5" *ngIf="modeCorriger==true">
+
+
+                    <button   class="btn btn-primary" *ngIf="modeCorriger" (click)="modeCorriger=false">
+                      Enregistrer
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+              <!-- Row end -->
+              <!-- Row start -->
+              <div class="row gutters">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                  <a class="invoice-logo">
+                    {{ facture.user.nom}}
+                  </a>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <address class="text-right">
+                    1, 2 rue André Ampère .<br>
+                    - 2083 - Pôle Technologique - El Ghazala.<br>
+                   Tunis,Tunisie
+                  </address>
+                </div>
+              </div>
+              <!-- Row end -->
+            </div>
+            <div class="invoice-body" >
+              <!-- Row start -->
+              <div class="row gutters">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="table-responsive">
+                    <table class="table custom-table m-0">
+                      <thead>
+                      <tr>
+                        <th>Nom Produit</th>
+                        <th>Code Produit</th>
+                        <th>Quantity</th>
+                        <th>Prix unitaire</th>
+                        <th *ngIf="modeCorriger">Action</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let detailfacture of facture.detailFacture">
+                        <td>
+                          {{ detailfacture.produit.libelle }}
+                          <p class="m-0 text-muted">
+                            {{ detailfacture.produit.idProduit}}
+                          </p>
+                        </td>
+                        <td>{{ detailfacture.produit.code }}</td>
+                        <td *ngIf="modeCorriger==false">{{ detailfacture.qte }}</td>
+                        <td *ngIf="modeCorriger">
+                          <input  type="number" class="form-control" [(ngModel)]="detailfacture.qte" min="1">
+                          <a class="btn btn-primary"(click)="updateDetailFactureQuantite(detailfacture)">Confirmer Quantite</a>
+                        </td>
+                        <td>{{ detailfacture.produit.prixUnitaire }}
+                          <p class="m-0 text-muted" *ngIf="detailfacture.produit.pourcentageRemise>0">
+                            Remise : {{ detailfacture.produit.pourcentageRemise}} %
+                          </p>
+                        </td>
+                        <td *ngIf="modeCorriger"><a class="fas fa-trash-alt" (click)="supprimerDetail(detailfacture.idDetailFacture)"></a> </td>
+
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td colspan="2">
+                          <h5 class="text-success"><strong>prix total : </strong></h5>
+                        </td>
+                        <td>
+                          <h5 class="text-success"><strong>{{ facture.montantFacture }}</strong></h5>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- Row end -->
+            </div>
+            <div class="invoice-footer">
+              Thank you for your Business.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

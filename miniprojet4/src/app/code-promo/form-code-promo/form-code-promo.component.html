@@ -1,0 +1,46 @@
+<div *ngIf="updateCodePromo==null">
+  <h1 class="text-center">Ajouter Code Promo</h1>
+</div>
+<div *ngIf="updateCodePromo!=null">
+  <h1 class="text-center">Modifier Code Promo</h1>
+</div>
+<form class="w-50 mx-auto user" [formGroup]="FormCodePromo" (ngSubmit)="saveCodePromo(FormCodePromo)">
+
+  <div>
+    <div class="form-group">
+      <label>Cle</label>
+      <input type="text" class="form-control form-control-user" formControlName="cle"  >
+    </div>
+    <br>
+    <div  class="alert alert-danger"  *ngIf="FormCodePromo.controls['cle'].hasError('minlength') && FormCodePromo.controls['cle'].touched && FormCodePromo.controls['dateFin'].invalid">Length min 4</div>
+  </div>
+  <div>
+    <div class="form-group">
+      <label>Date Fin</label>
+      <input type="datetime-local" class="form-control form-control-user"
+             name="dateFin" formControlName="dateFin" value="2021-12-09T15:00"
+             min="2021-12-19T15:00" max="2021-12-31T23:59">
+    </div>
+    <br>
+    <div class="alert alert-danger" *ngIf="FormCodePromo.controls['dateFin'].invalid && FormCodePromo.controls['dateFin'].touched">*Champs Obligatoire </div>
+  </div>
+  <div>
+    <div class="form-group">
+      <label>valeur</label>
+      <input type="number" class="form-control form-control-user" formControlName="valeur"  >
+    </div>
+    <br>
+    <div  class="alert alert-danger"  *ngIf="FormCodePromo.controls['valeur'].hasError('min')">valeur min 5</div>
+  </div>
+
+
+  <button class="btn btn-outline-success" type="submit"  [disabled]="FormCodePromo.invalid" >Valider</button>
+
+  &nbsp;
+  <button class="btn btn-outline-primary" type="reset" >Reset</button>
+</form>
+
+
+
+
+

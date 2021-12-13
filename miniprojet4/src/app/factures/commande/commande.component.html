@@ -1,0 +1,27 @@
+<app-form-facture *ngIf="showFacture" (addEvent)="addFacture($event)" [facture]="facture" ></app-form-facture>
+
+
+<div class="card my-auto mx-auto w-50" *ngIf="showFacture==false">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="far fa-smile-beam"></i>
+        </div>
+        <h4 class="modal-title"> Votre Facture est enregistré  !
+        </h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">
+
+          Merci pour votre confiance !
+          .</p>
+      </div>
+      <div class="modal-footer">
+        <a routerLink="/products/produit/1" class="btn btn-danger btn-block" data-dismiss="modal">OK</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row mt-5" *ngIf="afficher == false">
+        <div class="main-body">
+            <div class="row gutters-sm align-items-center">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="assets/img/UserPictures/{{user.urlpicture}}"  alt="Admin"
+                                    class="rounded-circle" width="150"/>
+                                <div class="mt-3">
+                                    <h4>{{user.nom}} {{user.prenom}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Nom</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    {{user.nom}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Prenom</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    {{user.prenom}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    {{user.email}} </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Date de Naissance</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    {{user.dateNaissance| date }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-primary mt-3 btn-user" (click)="displayForm()">Modifier mon
+                                        profil</button>
+                                    <button class="btn btn-danger mt-3 ms-2 btn-user" (click)="displayFormPsw()">Modifier mot
+                                        de passe</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+        <!-- <div class="col-12 ">
+            <div class="card ">
+                <img src="assets/img/UserPictures/{{user.urlpicture}}" alt="John" style="width:100%">
+                <p class="title">{{user.badge}}</p>
+                <h6>Nom :{{user.nom}}</h6>
+                <h6>Prenom :{{user.prenom}}</h6>
+                <h6>Date de naissance: {{user.dateNaissance| date }}</h6>
+                <h6>Email : {{user.email}}</h6>
+                <div>
+                    <button class="btn btn-primary mt-3 btn-user" (click)="displayForm()">Modifier mon profil</button>
+                    <button class="btn btn-danger my-2 btn-user" (click)="displayFormPsw()">Modifier mot de passe</button>
+                </div>
+            </div>
+        </div>-->
+    </div>
+    <app-user-form *ngIf="afficher2 == true" (notification)="displayProfile($event)" [user]=user></app-user-form>
+    <app-update-psw-form *ngIf="afficher3 == true" [user]=user (notification2)="displayProfile2($event)">
+    </app-update-psw-form>
+
+</div>

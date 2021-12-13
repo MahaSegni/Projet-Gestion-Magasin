@@ -1,0 +1,63 @@
+
+
+
+<div *ngIf="getUserType()==='MODERATEUR'" >
+
+  <button class="btn btn-success my-3 w-25" (click)="showForm()" >Ajouter</button>
+
+  <app-form-code-promo *ngIf="showFormTemplate" (addEvent)="saveCodePromo($event)" [updateCodePromo]="inputCodePromo"></app-form-code-promo>
+  <div *ngIf="!showFormTemplate">
+    <div class="form-group"   >
+    </div>
+    <div  class="container">
+      <input type="text" class="form-control" id="search-text" aria-describedby="search-text"
+             [(ngModel)]="searchTerm" (input)="search()"  placeholder="Enter text to search"
+             autofocus>
+
+    </div>
+    <div class="container">
+      <div class="table-responsive-xl">
+        <table class="table table-striped " >
+    <thead>
+    <tr>
+      <th  scope="col" class="text-center "(click)="sort('idCodePromo')" >Identifiant   &nbsp; <i class="fa fa-sort"></i> </th>
+      <th scope="col" class="text-center ">Cle promo</th>
+      <th  scope="col" class="text-center " (click)="sort('dateFin')">Date fin  &nbsp; <i class="fa fa-sort"></i> </th>
+      <th  scope="col" class="text-center " (click)="sort('valeur')">Valeur &nbsp; <i class="fa fa-sort"></i></th>
+      <th  scope="col" class="text-center ">Désactiver</th>
+      <th  scope="col" class="text-center ">Mise à jour</th>
+      <th  scope="col" class="text-center ">Génerer QrCode</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let code of Codes | orderBy: key: reverse| paginate :{itemsPerPage:3, currentPage:p} ;">
+      <td  scope="col" class="text-center ">{{code.idCodePromo}}</td>
+      <td  scope="col" class="text-center ">{{code.cle}}</td>
+      <td  scope="col" class="text-center ">{{code.dateFin| date:'yyyy-MM-dd hh:mm'}}</td>
+      <td  scope="col" class="text-center ">{{code.valeur}}%</td>
+      <td  scope="col" class="text-center "><button class="btn btn-outline-danger" (click)="deleteCode(code)" ><i class="fas fa-times-circle"></i></button></td>
+      <td  scope="col" class="text-center "><button class="btn btn-outline-success" (click)="updateForm(code)"><i class="fas fa-edit"></i></button></td>
+      <td  scope="col" class="text-center "><button class="btn btn-outline-secondary" (click)="genererQrCode(code)"><i class="fa fa-qrcode" aria-hidden="true"></i></button></td>
+
+
+    </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p = $event"> </pagination-controls>
+
+  </table>
+</div>
+<ngx-qrcode
+  [elementType]="elementType"
+  [errorCorrectionLevel]="correctionLevel"
+  [value]="value" [colorDark]="blueColor"
+  cssClass="bshadow"></ngx-qrcode>
+    </div>
+  </div>
+</div>
+<div class="container mydiv " *ngIf="getUserType()!='MODERATEUR'">
+
+  <input type="text" class="form-control" ng-model="search1"
+        placeholder="Entrer le code promo">
+  <button class="btn btn-outline-primary" (click)="appliquer(search1)">Appliquer </button>
+</div>
+

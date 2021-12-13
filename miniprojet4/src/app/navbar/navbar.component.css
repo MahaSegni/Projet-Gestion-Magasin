@@ -1,0 +1,27 @@
+
+#navUser {
+
+  /*position: fixed;
+  width: 100%;*/
+  z-index: 1000;
+}
+#navMod {
+  /*position: fixed;
+  width: 84.2%;*/
+  z-index: 1000;
+}
+.nav-link{
+    color: black !important;
+    opacity: 0.8;
+}
+
+
+.nav-link:hover{
+    opacity: 1;
+    font-weight: 600;
+}
+.active{
+    opacity: 1;
+    font-weight: 600;
+
+}
