@@ -54,10 +54,20 @@
     </div>
   </div>
 </div>
-<div class="container mydiv " *ngIf="getUserType()!='MODERATEUR'">
 
-  <input type="text" class="form-control" ng-model="search1"
-        placeholder="Entrer le code promo">
-  <button class="btn btn-outline-primary" (click)="appliquer(search1)">Appliquer </button>
+<app-form-front-code-promo *ngIf="getUserType()!='MODERATEUR'&&usercodepromo==false" (affectEvent)="appliquer($event)">
+
+</app-form-front-code-promo>
+<div class="card my-3" *ngIf="getUserType()!='MODERATEUR'&&usercodepromo==true" >
+  <div class="card-header">
+
+  </div>
+  <div class="card-body" style="background-color: #1cc88a">
+    <div class="card-text" style="color: white">
+      <p>Vous avez déja un code promo activé
+      </p>
+      <p>Valeur code promot : {{ user.codepromo.valeur }} % </p>
+    </div>
+  </div>
 </div>
 

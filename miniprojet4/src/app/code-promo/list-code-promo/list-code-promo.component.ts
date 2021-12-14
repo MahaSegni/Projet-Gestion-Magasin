@@ -4,6 +4,8 @@ import {CodePromoService} from "../../services/code-promo.service";
 import {SessionService} from "../../services/session.service";
 import {NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels} from "@techiediaries/ngx-qrcode";
 import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
+import {User} from "../../Model/user";
 
 @Component({
   selector: 'app-list-code-promo',
@@ -21,12 +23,17 @@ export class ListCodePromoComponent implements OnInit {
   correctionLevel: any;
   value: any
   blueColor:any
-  search1: string = '';
-  constructor(private service:CodePromoService,private session:SessionService,private router: Router) { }
+  search1: string;
+  usercodepromo=false;
+  user:User
+  constructor(private service:CodePromoService,private session:SessionService,private router: Router ,private userService:UserService) { }
 
   ngOnInit(): void {
     this.showFormTemplate=false;
+    this.search1='';
     let resp= this.service.afficherCodePromo().subscribe((data)=>this.Codes=data);
+    this.usercodepromo=this.session.getUser().codepromo!=null;
+    this.user=this.session.getUser();
   }
 
 
@@ -50,13 +57,17 @@ export class ListCodePromoComponent implements OnInit {
     this.key= key;
     this.reverse = !this.reverse;
   }
-  appliquer(search1:string){
-this.service.affecterCodePromo(this.getUserId(),search1).subscribe(()=>{
-  this.router.navigate(['/factures/panier']);
+  appliquer(code:string){
+      this.service.affecterCodePromo(this.getUserId(),code).subscribe(()=>{
+      this.router.navigate(['/factures/panier']);
+      let user=this.userService.getUser(this.getUserId()).subscribe((u)=>{
+        this.usercodepromo=this.session.getUser().codepromo!=null;
+
+        this.session.setUser(u);
+      })
+    });
   }
 
-);
-  }
   saveCodePromo(CodePromo: CodePromo){
 
     let resp= this.service.saveCodePromo(CodePromo).subscribe(()=>{

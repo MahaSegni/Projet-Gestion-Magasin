@@ -5,6 +5,8 @@ import {FactureService} from "../../services/facture.service";
 import {DetailFacture} from "../../Model/detailFacture";
 import {CodePromoService} from "../../services/code-promo.service";
 import {SessionService} from "../../services/session.service";
+import {User} from "../../Model/user";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-form-facture',
@@ -17,23 +19,44 @@ export class FormFactureComponent implements OnInit {
 
 
   FormFacture: FormGroup;
-  codepromo:string="";
-  constructor(private factureService:FactureService,private serviseCodePromo: CodePromoService, private session:SessionService) {
+  afficherFormCodePromo:boolean=false;
+  usercodepromo:boolean;
+  user:User;
+  showerreur=false;
+  constructor(private factureService:FactureService,private serviseCodePromo: CodePromoService, private session:SessionService,
+              private userService:UserService) {
   }
 
   ngOnInit(): void {
+
+    this.usercodepromo=this.session.getUser().codepromo!=null;
+    this.user=this.session.getUser();
+    if(this.user.codepromo!=null){
+      this.facture.montantFacture=this.facture.montantFacture-(this.facture.montantFacture*this.user.codepromo.valeur/100);
+    }
     this.FormFacture= new FormGroup({
       'dateFacture': new FormControl({value: this.facture.dateFacture.toString(), disabled: true},[] ),
       'userFacture': new FormControl({value:this.facture.user.email,disabled:true}),
-      'montantFacture':new FormControl({value:this.facture.montantFacture,disabled:true})
+      'montantFacture':new FormControl({value:this.facture.montantFacture,disabled:true}
+      )
     });
   }
   changeMontat(){
-    this.factureService.calculeMontat(this.facture)
-  this.FormFacture.setValue({'dateFacture': this.facture.dateFacture.toString(),
-    'userFacture':this.facture.user.email,
-      'montantFacture': this.facture.montantFacture });
+    if(this.facture.detailFacture.findIndex((d)=>d.qte<=0)>-1){
+      this.showerreur=true;
 
+    }else {
+      this.showerreur=false;
+      this.factureService.calculeMontat(this.facture)
+      if (this.user.codepromo != null) {
+        this.facture.montantFacture = this.facture.montantFacture - (this.facture.montantFacture * this.user.codepromo.valeur / 100);
+      }
+      this.FormFacture.setValue({
+        'dateFacture': this.facture.dateFacture.toString(),
+        'userFacture': this.facture.user.email,
+        'montantFacture': this.facture.montantFacture
+      });
+    }
   }
   DeleteDetail(d:DetailFacture){
     this.facture.detailFacture=this.facture.detailFacture.filter((item)=>item!=d);
@@ -48,8 +71,16 @@ export class FormFactureComponent implements OnInit {
   getUserId():number{
     return this.session.getUser().idUser;
   }
-  affecterCodePromo(codepromo:string){
-    this.serviseCodePromo.affecterCodePromo(this.getUserId(),codepromo);
-  }
+  addCodePromo(code:string){
+    this.serviseCodePromo.affecterCodePromo(this.getUserId(),code).subscribe(()=>{
+      let user=this.userService.getUser(this.getUserId()).subscribe((u)=>{
+        this.session.setUser(u);
+        this.usercodepromo=this.session.getUser().codepromo!=null;
+        this.facture.montantFacture=this.facture.montantFacture-(this.facture.montantFacture*this.user.codepromo.valeur/100);
+      });
 
+    })
+
+  }
 }
+

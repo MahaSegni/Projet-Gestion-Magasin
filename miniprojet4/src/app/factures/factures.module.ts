@@ -11,6 +11,7 @@ import {FormDetailFactureComponent} from "./form-detail-facture/form-detail-fact
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FactureComponent} from "./facture/facture.component";
 import {NgxPrintModule} from "ngx-print";
+import {CodePromoModule} from "../code-promo/code-promo.module";
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {NgxPrintModule} from "ngx-print";
     FormsModule,
     ReactiveFormsModule,
     NgxPrintModule,
+    CodePromoModule
 
   ]
 })

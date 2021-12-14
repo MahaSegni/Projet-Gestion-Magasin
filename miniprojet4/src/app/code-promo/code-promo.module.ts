@@ -10,13 +10,18 @@ import {Ng2OrderModule} from "ng2-order-pipe";
 import {NgxPaginationModule} from "ngx-pagination";
 import {ListCodePromoComponent} from "./list-code-promo/list-code-promo.component";
 import {FormCodePromoComponent} from "./form-code-promo/form-code-promo.component";
+import { FormFrontCodePromoComponent } from './form-front-code-promo/form-front-code-promo.component';
 
 
 @NgModule({
   declarations: [
     CodePromoComponent,
     ListCodePromoComponent,
-    FormCodePromoComponent
+    FormCodePromoComponent,
+    FormFrontCodePromoComponent
+  ],
+  exports: [
+    FormFrontCodePromoComponent
   ],
   imports: [
     CommonModule,

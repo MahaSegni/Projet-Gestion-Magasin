@@ -1,0 +1,15 @@
+
+<form class="w-50 mx-auto user" [formGroup]="FormCodePromoFront" (ngSubmit)="affecter(FormCodePromoFront)">
+
+  <div>
+    <div class="form-group">
+      <label>Cle</label>
+      <input type="text" class="form-control form-control-user" formControlName="cle"  >
+    </div>
+    <br>
+    <div  class="alert alert-danger"  *ngIf="FormCodePromoFront.controls['cle'].hasError('minlength') && FormCodePromoFront.controls['cle'].touched && FormCodePromoFront.controls['dateFin'].invalid">Length min 4</div>
+  </div>
+
+
+  <button class="btn btn-outline-success" type="submit"  [disabled]="FormCodePromoFront.invalid" >Valider</button>
+</form>

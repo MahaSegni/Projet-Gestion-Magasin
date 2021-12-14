@@ -30,6 +30,13 @@
       <div class="my-3" *ngFor="let detailFacutre of facture.detailFacture">
         <app-form-detail-facture (DeleteEvent)="DeleteDetail($event)" (NotifyEvent)="changeMontat()" [detailfacture]="detailFacutre"></app-form-detail-facture>
       </div>
+    <div class="row" *ngIf="showerreur">
+      <div class="col-12">
+        <div class="alert alert-danger">
+        Quantite doit etre >0
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-6">
         Prix Total :
@@ -40,7 +47,24 @@
 
       </div>
     </div>
+    <div class="row">
+      <div class="col"><button class="btn btn-warning" (click)="afficherFormCodePromo=!afficherFormCodePromo" type="button">Ajouter un code promo </button> </div>
+
+     </div>
+    <div class="row my-3">
+      <div class="col" *ngIf="afficherFormCodePromo==true&&usercodepromo==false">
+        <app-form-front-code-promo (affectEvent)="addCodePromo($event)" ></app-form-front-code-promo>
+      </div>
+      <div class="col" *ngIf="afficherFormCodePromo==true&&usercodepromo==true">
+        <div class="alert alert-info" >
+          <p>Vous avez déja un code promo activé
+          </p>
+          <p>Valeur code promot : {{ user.codepromo.valeur }} % </p>
+
+        </div>
+      </div>
+    </div>
   </div>
-  <button class="btn btn-outline-success my-3" type="submit" >Valider</button>
+  <button class="btn btn-outline-success my-3" type="submit" name="valider" [disabled]="showerreur">Valider</button>
 </form>
 
