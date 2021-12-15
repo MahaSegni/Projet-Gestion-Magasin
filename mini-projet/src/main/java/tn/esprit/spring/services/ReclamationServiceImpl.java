@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class ReclamationServiceImpl implements ReclamationService{
 
-	private final Path root = Paths.get("D:/CSAProjects/Integration2/miniProjet4twin/miniprojet4/src/assets/img/ReclamationPic");
+	private final Path root = Paths.get("D:/CSAProjects/Integration3/miniProjet4twin/miniprojet4/src/assets/img/ReclamationPic");
 
 	@Autowired
 	ReclamationRepository reclamationRepository;

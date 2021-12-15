@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	UserRepository userRepository;
-	private final Path root = Paths.get("D:/CSAProjects/Integration2/miniProjet4twin/miniprojet4/src/assets/img/UserPictures");
+	private final Path root = Paths.get("D:/CSAProjects/Integration3/miniProjet4twin/miniprojet4/src/assets/img/UserPictures");
 	//private final Path root = Paths.get("C:/Users/votre/OneDrive/Bureau/4twin/integration projet/miniProjet4twin/miniprojet4/src/assets/img/UserPictures");
 	  
 	@Override

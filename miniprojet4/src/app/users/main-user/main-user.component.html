@@ -1,2 +1,3 @@
-<app-user class="my-4" *ngFor="let user of listUsers" [user]="user" (notification)="delete($event)"> 
-  </app-user>
+<div class="row justify-content-center" style="position: absolute;">
+  <app-user class="my-4" *ngFor="let user of listUsers" [user]="user" (notification)="delete($event)" class = "col-10"> </app-user>
+</div>

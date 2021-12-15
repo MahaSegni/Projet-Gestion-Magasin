@@ -1,0 +1,1137 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>miniprojet4 documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">miniprojet4 documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  ReclamationComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/reclamations/reclamation/reclamation.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-reclamation</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./reclamation.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./reclamation.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#inputReclamation" >inputReclamation</a>
+                            </li>
+                            <li>
+                                <a href="#listReclamation" >listReclamation</a>
+                            </li>
+                            <li>
+                                <a href="#listReclamationFront" >listReclamationFront</a>
+                            </li>
+                            <li>
+                                <a href="#showFormTemplateAdd" >showFormTemplateAdd</a>
+                            </li>
+                            <li>
+                                <a href="#showFormTemplateId" >showFormTemplateId</a>
+                            </li>
+                            <li>
+                                <a href="#showFormTemplateUpdate" >showFormTemplateUpdate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cloturer" >cloturer</a>
+                            </li>
+                            <li>
+                                <a href="#getUser" >getUser</a>
+                            </li>
+                            <li>
+                                <a href="#getUserType" >getUserType</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#saveRec" >saveRec</a>
+                            </li>
+                            <li>
+                                <a href="#showFormAdd" >showFormAdd</a>
+                            </li>
+                            <li>
+                                <a href="#supprimerRec" >supprimerRec</a>
+                            </li>
+                            <li>
+                                <a href="#updateForm" >updateForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(service: <a href="../injectables/ReclamationService.html" target="_self">ReclamationService</a>, session: <a href="../injectables/SessionService.html" target="_self">SessionService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>service</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ReclamationService.html" target="_self" >ReclamationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>session</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SessionService.html" target="_self" >SessionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cloturer"></a>
+                    <span class="name">
+                        <span ><b>cloturer</b></span>
+                        <a href="#cloturer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cloturer(l: <a href="../classes/Reclamation.html" target="_self">Reclamation</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>l</td>
+                                    <td>
+                                                <code><a href="../classes/Reclamation.html" target="_self" >Reclamation</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUser"></a>
+                    <span class="name">
+                        <span ><b>getUser</b></span>
+                        <a href="#getUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUser()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserType"></a>
+                    <span class="name">
+                        <span ><b>getUserType</b></span>
+                        <a href="#getUserType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserType()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveRec"></a>
+                    <span class="name">
+                        <span ><b>saveRec</b></span>
+                        <a href="#saveRec"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveRec(rec: <a href="../classes/Reclamation.html" target="_self">Reclamation</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>rec</td>
+                                    <td>
+                                                <code><a href="../classes/Reclamation.html" target="_self" >Reclamation</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showFormAdd"></a>
+                    <span class="name">
+                        <span ><b>showFormAdd</b></span>
+                        <a href="#showFormAdd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showFormAdd()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supprimerRec"></a>
+                    <span class="name">
+                        <span ><b>supprimerRec</b></span>
+                        <a href="#supprimerRec"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>supprimerRec(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateForm"></a>
+                    <span class="name">
+                        <span ><b>updateForm</b></span>
+                        <a href="#updateForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateForm(rec: <a href="../classes/Reclamation.html" target="_self">Reclamation</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>rec</td>
+                                    <td>
+                                                <code><a href="../classes/Reclamation.html" target="_self" >Reclamation</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inputReclamation"></a>
+                    <span class="name">
+                        <span ><b>inputReclamation</b></span>
+                        <a href="#inputReclamation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Reclamation.html" target="_self" >Reclamation</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listReclamation"></a>
+                    <span class="name">
+                        <span ><b>listReclamation</b></span>
+                        <a href="#listReclamation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listReclamationFront"></a>
+                    <span class="name">
+                        <span ><b>listReclamationFront</b></span>
+                        <a href="#listReclamationFront"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showFormTemplateAdd"></a>
+                    <span class="name">
+                        <span ><b>showFormTemplateAdd</b></span>
+                        <a href="#showFormTemplateAdd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showFormTemplateId"></a>
+                    <span class="name">
+                        <span ><b>showFormTemplateId</b></span>
+                        <a href="#showFormTemplateId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showFormTemplateUpdate"></a>
+                    <span class="name">
+                        <span ><b>showFormTemplateUpdate</b></span>
+                        <a href="#showFormTemplateUpdate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/reclamations/reclamation/reclamation.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, OnInit  , ViewChild} from &#x27;@angular/core&#x27;;
+import {ReclamationService} from &quot;../../services/reclamation.service&quot;;
+import {SessionService} from &quot;../../services/session.service&quot;;
+import {CategorieProduit} from &quot;../../Model/CategorieProduit&quot;;
+import {Reclamation} from &quot;../../Model/Reclamation&quot;;
+
+
+
+@Component({
+  selector: &#x27;app-reclamation&#x27;,
+  templateUrl: &#x27;./reclamation.component.html&#x27;,
+  styleUrls: [&#x27;./reclamation.component.css&#x27;]
+})
+export class ReclamationComponent implements OnInit {
+  listReclamation:any;
+  listReclamationFront:any;
+  showFormTemplateAdd:Boolean;
+  showFormTemplateUpdate:Boolean;
+  showFormTemplateId:number;
+  inputReclamation: Reclamation;
+
+
+  constructor(private service:ReclamationService,private session:SessionService) { }
+
+  ngOnInit(): void {
+    let resp&#x3D;this.service.afficherReclamation().subscribe((data)&#x3D;&gt; this.listReclamation&#x3D;data);
+    let resp1&#x3D;this.service.getReclamationByUser(this.getUser()).subscribe((data)&#x3D;&gt; this.listReclamationFront&#x3D;data);
+    this.showFormTemplateAdd&#x3D;false;
+    this.showFormTemplateUpdate&#x3D;false;
+  }
+
+  getUserType():string{
+    return this.session.getSessionType();
+  }
+
+  getUser():number{
+    return this.session.getUser().idUser;
+  }
+
+  supprimerRec(id: number){
+    let resp&#x3D; this.service.supprimerReclamation(id).subscribe(()&#x3D;&gt;{
+      this.service.getReclamationByUser(this.getUser()).subscribe((data)&#x3D;&gt;{this.listReclamationFront&#x3D;data;})
+    });
+  }
+
+  saveRec(rec: Reclamation){
+    let resp&#x3D; this.service.ajouterReclamation(rec).subscribe(()&#x3D;&gt;{
+      this.service.getReclamationByUser(this.getUser()).subscribe((data)&#x3D;&gt;{this.listReclamationFront&#x3D;data;})
+    });
+    this.showFormTemplateAdd&#x3D;false;
+    this.showFormTemplateUpdate&#x3D;false;
+  }
+
+  showFormAdd()
+  {this.showFormTemplateAdd&#x3D;! this.showFormTemplateAdd;
+  }
+
+  cloturer(l:Reclamation)
+  {l.cloture&#x3D;!l.cloture;
+    this.saveRec(l);
+  }
+
+  updateForm(rec:Reclamation)
+  {  this.showFormTemplateUpdate&#x3D;!this.showFormTemplateUpdate;
+    this.showFormTemplateId&#x3D;rec.idReclamation;
+    this.inputReclamation&#x3D;rec;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">
+
+
+&lt;div *ngIf&#x3D;&quot;getUserType()&#x3D;&#x3D;&#x3D;&#x27;MODERATEUR&#x27;&quot; style&#x3D;&quot;margin-top: 5%&quot; &gt;
+  &lt;h1 class&#x3D;&quot;text-center mb-5&quot;&gt;Espace Reclamation&lt;/h1&gt;
+  &lt;div class&#x3D;&quot;card mt-3&quot; *ngFor&#x3D;&quot;let l of listReclamation &quot;&gt;
+    &lt;div class&#x3D;&quot; card-header d-flex align-items-start&quot;&gt;
+      &lt;img class&#x3D;&quot;circular--portrait &quot;  src&#x3D;&quot;assets/img/UserPictures/{{l.user.urlpicture}}&quot;/&gt;
+      &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+        &lt;h4&gt;{{l.user.prenom}}&amp;nbsp;{{l.user.nom}}&lt;/h4&gt; &lt;h6&gt;{{l.dateReclamation}}&lt;/h6&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;ml-auto&quot; &gt;
+        &lt;a *ngIf&#x3D;&quot;!l.cloture&quot; (click)&#x3D;&quot;cloturer(l)&quot; class&#x3D;&quot;btn btn-success d-inline&quot; &gt;Cloturer&lt;/a&gt;
+
+        &lt;i *ngIf&#x3D;&quot;l.cloture&quot; title&#x3D;&quot;cette reclamation est cloturée &quot; (click)&#x3D;&quot;cloturer(l)&quot; class&#x3D;&quot;fas fa-lock&quot;&gt;&lt;/i&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;card-body&quot;&gt;
+      &lt;h5 class&#x3D;&quot;card-title&quot;&gt;{{l.objet}}&lt;/h5&gt;
+      &lt;p class&#x3D;&quot;card-text&quot;&gt;{{l.messageReclamation}}&lt;/p&gt;
+      &lt;img  *ngIf&#x3D;&quot;l.imageReclamation!&#x3D;&#x27;&#x27;&quot; class&#x3D;&quot;imageRec d-block&quot; style&#x3D;&quot;border: solid 1px &quot;  src&#x3D;&quot;{{l.imageReclamation}}&quot;/&gt;
+      &lt;br&gt;
+      &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;btn btn-primary mt-4 d-inline&quot; [routerLink]&#x3D;&quot;[&#x27;/reclamations/espaceReclamation&#x27;,l.idReclamation]&quot; &gt;Consulter Reclamation&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;container&quot; *ngIf&#x3D;&quot;getUserType()!&#x3D;&#x27;MODERATEUR&#x27; &quot; style&#x3D;&quot;margin-top: 5%&quot; &gt;
+
+
+  &lt;h1 class&#x3D;&quot;text-center mb-5&quot;&gt;Espace Reclamation&lt;/h1&gt;
+  &lt;a class&#x3D;&quot;btn btn-success my-3 w-25 mr-5&quot; (click)&#x3D;&quot;showFormAdd()&quot;&gt;Ajouter Reclamation&lt;/a&gt;
+
+  &lt;a class&#x3D;&quot;btn btn-outline-primary my-3 w-25 float-right &quot; routerLink&#x3D;&quot;/reclamations/statReclamation&quot; &gt;Consulter Statistique&lt;/a&gt;
+  &lt;app-form-reclamation *ngIf&#x3D;&quot;showFormTemplateAdd&quot; (addEvent)&#x3D;&quot;saveRec($event)&quot; &gt;&lt;/app-form-reclamation&gt;
+  &lt;div class&#x3D;&quot;card mt-3&quot; *ngFor&#x3D;&quot;let l of listReclamationFront &quot;&gt;
+    &lt;div class&#x3D;&quot; card-header d-flex align-items-start&quot;&gt;
+      &lt;img class&#x3D;&quot;circular--portrait &quot;  src&#x3D;&quot;assets/img/UserPictures/{{l.user.urlpicture}}&quot;/&gt;
+      &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+        &lt;h4&gt;{{l.user.prenom}}&amp;nbsp;{{l.user.nom}}&lt;/h4&gt; &lt;h6&gt;{{l.dateReclamation}}&lt;/h6&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;ml-auto&quot;&gt;
+        &lt;button *ngIf&#x3D;&quot;!l.cloture&quot; class&#x3D;&quot;btn btn-warning mt-2 &quot; [disabled]&#x3D;&quot;showFormTemplateUpdate &amp;&amp; showFormTemplateId!&#x3D;l.idReclamation&quot; (click)&#x3D;&quot;updateForm(l)&quot;&gt;Modifier&lt;/button&gt;
+        &lt;a *ngIf&#x3D;&quot;!l.cloture&quot; class&#x3D;&quot;btn btn-danger ml-3 mt-2 &quot; (click)&#x3D;&quot;supprimerRec(l.idReclamation)&quot; &gt;Supprimer&lt;/a&gt;
+        &lt;i *ngIf&#x3D;&quot;l.cloture&quot; title&#x3D;&quot;cette reclamation est cloturée vous ne pouvez ni la supprimer ni la modifier ni repondre &quot;  class&#x3D;&quot;fas fa-lock&quot;&gt;&lt;/i&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;card-body&quot;&gt;
+      &lt;h5 class&#x3D;&quot;card-title&quot;&gt;{{l.objet}}&lt;/h5&gt;
+      &lt;p class&#x3D;&quot;card-text&quot;&gt;{{l.messageReclamation}}&lt;/p&gt;
+      &lt;img  *ngIf&#x3D;&quot;l.imageReclamation!&#x3D;&#x27;&#x27;&quot; class&#x3D;&quot;imageRec d-block&quot; style&#x3D;&quot;border: solid 1px &quot;  src&#x3D;&quot;{{l.imageReclamation}}&quot;/&gt;
+      &lt;br&gt;
+      &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;btn btn-primary mt-4&quot; [routerLink]&#x3D;&quot;[&#x27;/reclamations/espaceReclamation&#x27;,l.idReclamation]&quot; &gt;Consulter Reclamation&lt;/a&gt;
+
+    &lt;/div&gt;
+    &lt;app-form-reclamation  *ngIf&#x3D;&quot;showFormTemplateUpdate &amp;&amp; showFormTemplateId&#x3D;&#x3D;l.idReclamation&quot;  (addEvent)&#x3D;&quot;saveRec($event)&quot; [updateReclamation]&#x3D;&quot;inputReclamation&quot;&gt;&lt;/app-form-reclamation&gt;
+
+  &lt;/div&gt;
+
+
+&lt;/div&gt;
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./reclamation.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.circular--portrait {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 1%;
+}
+
+.circular--portrait img {
+  width: 100%;
+  height: auto;
+}
+.imageRec {
+  position: center;
+  width: 400px;
+  height: 200px;
+  overflow: hidden;
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="getUserType()===\'MODERATEUR\'" style="margin-top: 5%" >  <h1 class="text-center mb-5">Espace Reclamation</h1>  <div class="card mt-3" *ngFor="let l of listReclamation ">    <div class=" card-header d-flex align-items-start">      <img class="circular--portrait "  src="assets/img/UserPictures/{{l.user.urlpicture}}"/>      <div class="d-flex flex-column">        <h4>{{l.user.prenom}}&nbsp;{{l.user.nom}}</h4> <h6>{{l.dateReclamation}}</h6>      </div>      <div class="ml-auto" >        <a *ngIf="!l.cloture" (click)="cloturer(l)" class="btn btn-success d-inline" >Cloturer</a>        <i *ngIf="l.cloture" title="cette reclamation est cloturée " (click)="cloturer(l)" class="fas fa-lock"></i>      </div>    </div>    <div class="card-body">      <h5 class="card-title">{{l.objet}}</h5>      <p class="card-text">{{l.messageReclamation}}</p>      <img  *ngIf="l.imageReclamation!=\'\'" class="imageRec d-block" style="border: solid 1px "  src="{{l.imageReclamation}}"/>      <br>      <a href="#" class="btn btn-primary mt-4 d-inline" [routerLink]="[\'/reclamations/espaceReclamation\',l.idReclamation]" >Consulter Reclamation</a>    </div>  </div></div><div class="container" *ngIf="getUserType()!=\'MODERATEUR\' " style="margin-top: 5%" >  <h1 class="text-center mb-5">Espace Reclamation</h1>  <a class="btn btn-success my-3 w-25 mr-5" (click)="showFormAdd()">Ajouter Reclamation</a>  <a class="btn btn-outline-primary my-3 w-25 float-right " routerLink="/reclamations/statReclamation" >Consulter Statistique</a>  <app-form-reclamation *ngIf="showFormTemplateAdd" (addEvent)="saveRec($event)" ></app-form-reclamation>  <div class="card mt-3" *ngFor="let l of listReclamationFront ">    <div class=" card-header d-flex align-items-start">      <img class="circular--portrait "  src="assets/img/UserPictures/{{l.user.urlpicture}}"/>      <div class="d-flex flex-column">        <h4>{{l.user.prenom}}&nbsp;{{l.user.nom}}</h4> <h6>{{l.dateReclamation}}</h6>      </div>      <div class="ml-auto">        <button *ngIf="!l.cloture" class="btn btn-warning mt-2 " [disabled]="showFormTemplateUpdate && showFormTemplateId!=l.idReclamation" (click)="updateForm(l)">Modifier</button>        <a *ngIf="!l.cloture" class="btn btn-danger ml-3 mt-2 " (click)="supprimerRec(l.idReclamation)" >Supprimer</a>        <i *ngIf="l.cloture" title="cette reclamation est cloturée vous ne pouvez ni la supprimer ni la modifier ni repondre "  class="fas fa-lock"></i>      </div>    </div>    <div class="card-body">      <h5 class="card-title">{{l.objet}}</h5>      <p class="card-text">{{l.messageReclamation}}</p>      <img  *ngIf="l.imageReclamation!=\'\'" class="imageRec d-block" style="border: solid 1px "  src="{{l.imageReclamation}}"/>      <br>      <a href="#" class="btn btn-primary mt-4" [routerLink]="[\'/reclamations/espaceReclamation\',l.idReclamation]" >Consulter Reclamation</a>    </div>    <app-form-reclamation  *ngIf="showFormTemplateUpdate && showFormTemplateId==l.idReclamation"  (addEvent)="saveRec($event)" [updateReclamation]="inputReclamation"></app-form-reclamation>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CategorieProduitComponent', 'selector': 'app-categorie-produit'},{'name': 'CodePromoComponent', 'selector': 'app-code-promo'},{'name': 'CommandeComponent', 'selector': 'app-commande'},{'name': 'ConnectionComponent', 'selector': 'app-connection'},{'name': 'FactureComponent', 'selector': 'app-facture'},{'name': 'FacturesComponent', 'selector': 'app-factures'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormCategorieproduitComponent', 'selector': 'app-form-categorieproduit'},{'name': 'FormCodePromoComponent', 'selector': 'app-form-code-promo'},{'name': 'FormDetailFactureComponent', 'selector': 'app-form-detail-facture'},{'name': 'FormFactureComponent', 'selector': 'app-form-facture'},{'name': 'FormFrontCodePromoComponent', 'selector': 'app-form-front-code-promo'},{'name': 'FormProduitComponent', 'selector': 'app-form-produit'},{'name': 'FormReclamationComponent', 'selector': 'app-form-reclamation'},{'name': 'FormReponsereclamationComponent', 'selector': 'app-form-reponsereclamation'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InscriptionComponent', 'selector': 'app-inscription'},{'name': 'LikeDislikeComponent', 'selector': 'app-like-dislike'},{'name': 'ListCodePromoComponent', 'selector': 'app-list-code-promo'},{'name': 'ListLikeDislikeComponent', 'selector': 'app-list-like-dislike'},{'name': 'MainUserComponent', 'selector': 'app-main-user'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PanierComponent', 'selector': 'app-panier'},{'name': 'PanierVideComponent', 'selector': 'app-panier-vide'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProduitComponent', 'selector': 'app-produit'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ReclamationComponent', 'selector': 'app-reclamation'},{'name': 'ReclamationsComponent', 'selector': 'app-reclamations'},{'name': 'ReponseReclamationComponent', 'selector': 'app-reponse-reclamation'},{'name': 'SidemenuComponent', 'selector': 'app-sidemenu'},{'name': 'StatReclamationComponent', 'selector': 'app-stat-reclamation'},{'name': 'UpdatePswFormComponent', 'selector': 'app-update-psw-form'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'UserFormComponent', 'selector': 'app-user-form'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ReclamationComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ReclamationComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

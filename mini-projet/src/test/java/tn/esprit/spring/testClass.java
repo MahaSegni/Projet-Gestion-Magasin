@@ -48,8 +48,8 @@ public class testClass {
 		String psw = BCrypt.hashpw("1234", BCrypt.gensalt());
 		User u = new User(9L,"testnom","testprenom",date,"med@mod",psw,"user.png",null,Badge.Moderateur,false,null,null,null,null,null,null);
 		userRepository.save(u);
-		User u1 = new User(2,"testnom","testprenom",date,"maha@mod",psw,"user.png",null,Badge.Fidele,false,null,null,null,null,null,null);
-		userRepository.save(u1);
+		//User u1 = new User(2,"testnom","testprenom",date,"maha@mod",psw,"user.png",null,Badge.Fidele,false,null,null,null,null,null,null);
+		//userRepository.save(u1);
 	}
 	@Ignore
 	@Test

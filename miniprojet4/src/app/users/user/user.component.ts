@@ -9,15 +9,17 @@ import { SessionService } from '../../services/session.service';
 })
 export class UserComponent implements OnInit {
 
-  @Input() user : User
+  @Input() user: User
   @Output() notification = new EventEmitter<User>();
-  constructor(private session:SessionService) { }
+  constructor(private session: SessionService) { }
 
   ngOnInit(): void {
   }
 
-  notifyParent(){
-    this.notification.emit(this.user)
+  notifyParent() {
+    if (confirm("Confirmer la suppression de " + this.user.prenom + " " + this.user.nom)) {
+      this.notification.emit(this.user)
+    }
   }
 
 }

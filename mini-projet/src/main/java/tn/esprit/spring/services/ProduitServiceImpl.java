@@ -20,7 +20,7 @@ import tn.esprit.spring.repositories.ProduitRepository;
 
 @Service
 public class ProduitServiceImpl implements ProduitService {
-	private final Path root = Paths.get("D:/CSAProjects/Integration2/miniProjet4twin/miniprojet4/src/assets/img/ProductPic");
+	private final Path root = Paths.get("D:/CSAProjects/Integration3/miniProjet4twin/miniprojet4/src/assets/img/ProductPic");
 	
 
     @Autowired 
