@@ -18,9 +18,9 @@ public class JwtUtils {
 	public String generateJwt(User user) {
 		RandomString secret = new RandomString();
 		Claims claims = Jwts.claims().setIssuer(Long.toString(user.getIdUser()));
-		claims.put("id",user.getIdUser());
+		/*claims.put("id",user.getIdUser());
 		claims.put("name",user.getNom());
-		claims.put("type",user.getBadge());
+		claims.put("type",user.getBadge());*/
 		return Jwts.builder().setClaims(claims).signWith(SignatureAlgorithm.HS512, secret.toString()).compact();
 		
 	}
