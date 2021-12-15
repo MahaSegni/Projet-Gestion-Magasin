@@ -93,7 +93,7 @@ public class UserRestController {
 	
 	@GetMapping("/retrieve-all-users/{id}")
 	@ResponseBody
-	public List<User> getAllUsers(@RequestHeader(value = "authorization", defaultValue = "") String auth,@PathVariable Long id){
+	public List<User> getAllUsers(@RequestHeader(value = "authorisation", defaultValue = "") String auth,@PathVariable Long id){
 		User u = userService.retrieveUser(id);
 		if ((u.getToken().equals(auth)) && ((u.getBadge().toString()).equals("Moderateur")))
 		{
@@ -128,7 +128,7 @@ public class UserRestController {
 	
 	@PutMapping("/change-password")
 	@ResponseBody
-	public User updateUserPassword(@RequestBody User u,@RequestHeader(value = "authorization", defaultValue = "") String auth) {
+	public User updateUserPassword(@RequestBody User u,@RequestHeader(value = "authorisation", defaultValue = "") String auth) {
 		if (u.getToken().equals(auth)) {
 
 			String pass = BCrypt.hashpw(u.getPassword(), BCrypt.gensalt());
@@ -160,7 +160,7 @@ public class UserRestController {
 	
 	@GetMapping("/retrieve-user/{user-id}")
 	@ResponseBody
-	public User retrieveUser(@RequestHeader(value = "authorization", defaultValue = "") String auth,@PathVariable("user-id") Long id) {
+	public User retrieveUser(@RequestHeader(value = "authorisation", defaultValue = "") String auth,@PathVariable("user-id") Long id) {
 		
 		User u = userService.retrieveUser(id);
 		if (u.getToken().equals(auth)) {
@@ -173,7 +173,7 @@ public class UserRestController {
 	
 	@DeleteMapping("/remove-user/{user-id}/{admin-id}")
 	@ResponseBody
-	public void removeUser(@RequestHeader(value = "authorization", defaultValue = "") String auth,@PathVariable("user-id") Long id,@PathVariable("admin-id") Long aid) {
+	public void removeUser(@RequestHeader(value = "authorisation", defaultValue = "") String auth,@PathVariable("user-id") Long id,@PathVariable("admin-id") Long aid) {
 		User u = userService.retrieveUser(aid);
 		if ((u.getToken().equals(auth)) && ((u.getBadge().toString()).equals("Moderateur"))) {
 			userService.deleteUser(id);
@@ -183,7 +183,7 @@ public class UserRestController {
 	
 	@PutMapping("/modify-user")
 	@ResponseBody
-	public User updateUser(@RequestBody User u, @RequestHeader(value = "authorization", defaultValue = "") String auth) {
+	public User updateUser(@RequestBody User u, @RequestHeader(value = "authorisation", defaultValue = "") String auth) {
 		if (u.getToken().equals(auth)) {
 			return userService.updateUser(u);
 		}
@@ -195,7 +195,7 @@ public class UserRestController {
 	
 	@PostMapping("/uploadImage/{user-id}")
 	@ResponseBody
-	public User uploadFile(@RequestParam("file") MultipartFile file,@PathVariable("user-id") Long id,@RequestHeader(value = "authorization", defaultValue = "") String auth) {
+	public User uploadFile(@RequestParam("file") MultipartFile file,@PathVariable("user-id") Long id,@RequestHeader(value = "authorisation", defaultValue = "") String auth) {
 
 		User u = userService.retrieveUser(id);
 		if (u.getToken().equals(auth)) {

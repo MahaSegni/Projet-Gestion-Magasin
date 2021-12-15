@@ -25,24 +25,24 @@ export class UserService {
   }
 
   public updateUser(user: User){
-    return this.http.put("http://localhost:8081/SpringMVC/user/modify-user",user,{responseType:'text' as 'json',headers: new HttpHeaders().set('authorization', this.session.getUser().token)});
+    return this.http.put("http://localhost:8081/SpringMVC/user/modify-user",user,{responseType:'text' as 'json',headers: new HttpHeaders().set('authorisation', this.session.getUser().token)});
   }
 
   public getUser(id: number): Observable<User>{
-    return this.http.get<User>("http://localhost:8081/SpringMVC/user/retrieve-user/"+id,{headers: new HttpHeaders().set('authorization', this.session.getUser().token)});
+    return this.http.get<User>("http://localhost:8081/SpringMVC/user/retrieve-user/"+id,{headers: new HttpHeaders().set('authorisation', this.session.getUser().token)});
   }  
 
   public updateUserPassword(user: User){
-    return this.http.put("http://localhost:8081/SpringMVC/user/change-password",user,{responseType:'text' as 'json',headers: new HttpHeaders().set('authorization', this.session.getUser().token)});
+    return this.http.put("http://localhost:8081/SpringMVC/user/change-password",user,{responseType:'text' as 'json',headers: new HttpHeaders().set('authorisation', this.session.getUser().token)});
   }
 
   public getUsers(id:number): Observable<User[]>{
     
-    return this.http.get<User[]>("http://localhost:8081/SpringMVC/user/retrieve-all-users/"+id,{headers: new HttpHeaders().set('authorization', this.session.getUser().token)});
+    return this.http.get<User[]>("http://localhost:8081/SpringMVC/user/retrieve-all-users/"+id,{headers: new HttpHeaders().set('authorisation', this.session.getUser().token)});
   }
 
   public deleteUser(id : number,aid : number){
-    return this.http.delete("http://localhost:8081/SpringMVC/user/remove-user/"+id+"/"+aid,{headers: new HttpHeaders().set('authorization', this.session.getUser().token)});
+    return this.http.delete("http://localhost:8081/SpringMVC/user/remove-user/"+id+"/"+aid,{headers: new HttpHeaders().set('authorisation', this.session.getUser().token)});
   }
 
   public sendMail(email:string) : Observable<string>{
