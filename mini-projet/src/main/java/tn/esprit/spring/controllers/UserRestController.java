@@ -129,7 +129,7 @@ public class UserRestController {
 	@PutMapping("/change-password")
 	@ResponseBody
 	public User updateUserPassword(@RequestBody User u,@RequestHeader(value = "authorization", defaultValue = "") String auth) {
-		if (u.getToken().equals(auth)) {
+		if (userService.retrieveUser(u.getIdUser()).getToken().equals(auth)) {
 
 			String pass = BCrypt.hashpw(u.getPassword(), BCrypt.gensalt());
 			u.setPassword(pass);
@@ -184,7 +184,7 @@ public class UserRestController {
 	@PutMapping("/modify-user")
 	@ResponseBody
 	public User updateUser(@RequestBody User u, @RequestHeader(value = "authorization", defaultValue = "") String auth) {
-		if (u.getToken().equals(auth)) {
+		if (userService.retrieveUser(u.getIdUser()).getToken().equals(auth)) {
 			return userService.updateUser(u);
 		}
 		else {
